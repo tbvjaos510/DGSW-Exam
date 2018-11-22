@@ -1,5 +1,9 @@
 # 대구소프트웨어고등학교 시험 준비 자료들
-![](https://img.shields.io/badge/School-%EB%8C%80%EA%B5%AC%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-brightgreen.svg?longCache=true)
+<p align="center">
+  <a href="http://www.dgsw.hs.kr/index.do">
+    <img src="https://img.shields.io/badge/School-%EB%8C%80%EA%B5%AC%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-brightgreen.svg?longCache=true">
+  </a>
+</p>
 ## 참고사항
 
 * 2학년 1학기 자료들은 대부분 hwp 파일로 되어 있고 2학기 부터 markdown(.md)파일로 제작합니다.
