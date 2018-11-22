@@ -1,5 +1,11 @@
 # 네트워크
 
+<p align="center">
+      <a href="https://github.com/tbvjaos510/DGSW-Exam#1%EC%9D%BC%EC%B0%A8">
+            <img src="https://img.shields.io/badge/%EC%8B%9C%ED%97%98-1%EC%9D%BC%EC%B0%A8-brightgreen.svg?style=flat-square&longCache=true">
+      </a>
+</p>
+
 ### 시험범위
 
 - 학습자료 1 ~ 26?? 진도 더나가는중
