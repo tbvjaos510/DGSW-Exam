@@ -15,7 +15,7 @@
 
   - [ ] 화법과 작문
 
-  - [ ] 네트워크 프로그래밍
+  - [ ] [네트워크 프로그래밍](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC)
 
   - [ ] 웹 프로그래밍 기초
 
