@@ -28,7 +28,7 @@
 
   - [ ] 한국사
 
-  - [ ] C#
+  - [ ] [C#](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/CSharp)
 
   - [ ] [영어](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/English)
 
@@ -38,4 +38,4 @@
 
   - [x] 자율
 
-  - [x] [데이터베이스](https://github.com/tbvjaos510/DGSW-Exam/blob/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/DB/README.md)
+  - [x] [데이터베이스](https://github.com/tbvjaos510/DGSW-Exam/blob/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/DB)
