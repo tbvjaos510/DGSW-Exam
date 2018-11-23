@@ -30,7 +30,7 @@
 
   - [ ] C#
 
-  - [ ] 영어
+  - [ ] [영어](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/English)
 
 - ### 3일차
 
