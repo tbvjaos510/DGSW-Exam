@@ -43,7 +43,6 @@
 | 반환자료형                                  | 메소드                     | 설명                                       | 예시                                                        |
 | -------------------------------------- | ----------------------- | ---------------------------------------- | --------------------------------------------------------- |
 | `static Enumeration<NetworkInterface>` | `getNeworkInterfaces()` | 시스템 내 존재하는 모든 네트워크 디바이스의 리스트를 얻음         | ip, 기기 이름 전부 나온다.                                         |
-| `static NetworkInterface`              | `getByName(String)`     | 주어진 interfaceName으로 특정 네트워크 디바이스의 객체를 얻음 | `("lo").getDisplayName()` "Software Loopback Interface 1" |
+| `static NetworkInterface`              | `getByName(String)`     | 주어진 interfaceName으로 특정 네트워크 디바이스의 객체를 얻음 | `("lo").getDisplayName()` "Software Loopback Interface 1" |
 | `string`                               | `getDisplayName()`      | 네트워크 디바이스의 이름을 얻음                        | 위 예시 참고                                                   |
-
-
+| `string`                               | `getName()`             |                                          |                                                           |
