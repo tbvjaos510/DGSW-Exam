@@ -18,6 +18,7 @@
 * 2학년 2학기 문서 중 일부 문서들은 Latex를 사용합니다. 깃허브에서 볼려면 [크롬 익스텐션(MathJax Plugin for Github)](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima)를 설치해 주세요
 * 같이 만들고 싶으면 말하면 콜라보레이터 추가해드릴게요~
 * **볼때 별 하나씩만 달아줘요 ㅠㅠㅠㅠㅠㅠ**
+* 문서를 볼 때 오류나 오타가 보이면 직접 수정해 주세요 [여기](HOW-Contribute.md) 참고
 
 ## 2학년 2학기 작업 상태
 
