@@ -6,6 +6,14 @@
       </a>
 </p>
 
-## 본문 해석 ([허찬영](https://github.com/2001hcy))
-* [Chapter 3](./Lesson03.md)
-* [Chapter 6](./Lesson06.md)
+## 작성자: [허찬영](https://github.com/2001hcy)
+
+* 본문해석 -> 단어정리 -> 문법 정리 순으로 업로드 될 예정입니다
+* 라키수니인가 그거 보지마시고 차라리 번역기를 돌리세요~~
+* 
+* [Lesson 3](./Lesson03.md)
+* Lesson 5 
+* [Lesson 6](./Lesson06.md)
+* Lesson 8
+
+
