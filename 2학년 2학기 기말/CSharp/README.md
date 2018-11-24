@@ -12,21 +12,21 @@
 
 * 연습문제 위치
 
-  * 246~247 - Chapter 05 클래스의 기본
+  * 246~247 - [Chapter 05 클래스의 기본](#Chapter 05 - 클래스의 기본)
 
-  * 312~314 - Chapter 06 메서드
+  * 312~314 - [Chapter 06 메서드](#Chapter 06 - 메서드)
 
-  * 373~376 - Chapter 07 상속과 다형성 
+  * 373~376 - [Chapter 07 상속과 다형성](#Chapter 07 - 상속과 다형성)
 
-  * 402 - Chapter 08 클래스 심화
+  * 402 - [Chapter 08 클래스 심화](#Chapter 08 - 클래스 심화)
 
-  * 444 - Chapter 09 인터페이스
+  * 444 - [Chapter 09 인터페이스](#Chapter 09 - 인터페이스)
 
-  * 476 - Chapter 10 예외 처리 
+  * 476 - [Chapter 10 예외 처리 ](#Chapter 10 - 예외 처리)
 
-  * 506 - Chapter 11 델리게이트와 람다 
+  * 506 - [Chapter 11 델리게이트와 람다](#Chapter 11 - 델리게이터와 람다) 
 
-  * 527~529 - Chapter 12 LinQ
+  * 527~529 - [Chapter 12 Linq](#Chapter 12 - Linq)
 
   * ~~프로젝트~~ - 안나온다
 
@@ -175,7 +175,7 @@
 | 생성자 규칙     | 어느 형태든 가능      | 모든 멤버 변수를 초기화 해야함. |
 | 맴버 변수의 초기화 | 선언과 동시에 초기화 O  | 선언과 동시에 초기화 X      |
 
-## Chapter 09
+## Chapter 09 - 인터페이스
 
 | 문제 번호 | 정답          | 풀이                     |
 | ----- | ----------- | ---------------------- |
@@ -237,8 +237,6 @@ catch (Exception e) {}
 
 로 모든 예외를 받을 수 있다. `Exception`클래스는 모든 예외의 부모이기 때문이다. 
 
-
-
 ## Chapter 11 - 델리게이터와 람다
 
 | 문제 번호 | 정답                                   | 풀이                              |
@@ -266,3 +264,65 @@ OnClick = (sender) => {
 익명함수가 훨씬 간단해 보인다.
 
 
+
+## Chapter 12 - Linq
+
+| 문제 번호 | 정답                                                       | 풀이                                          |
+| ----- | -------------------------------------------------------- | ------------------------------------------- |
+| 01    | `output = from item in input where item < 4 select item` | 예제에서 4 미만인 숫자를 리스트에 더한다.                    |
+| 02    | `...input where item % 4 == 1 select item`               | 위 예제와 초반은 같지만 조건이 다르다                       |
+| 03    | `...4 == 1 order by item select item`                    | 문제 자체에서는 정렬이 된 상태라서 정렬이 필요 없지만 키워드가 있으니 적자. |
+| 04    | `...order by item descending`                            | 내림차순은 descending 키워드를 적는다.                  |
+| 05-1  | `from item in products order by item.Name`               | 객체를 LinQ로 사용하려면 . 으로 접근한다.                  |
+| 05-2  | `... where item.Price<2000 order by item.Price`          | 반대로 변환할 수 도 있어야 한다.                         |
+| 05-3  | `...item.Price descending`                               | Reverse()를 사용했으므로 내림차순으로 한다.                |
+
+### 상세 설명
+
+> LInq란? `Language-Integrated Query`의 줄임말로 컬렉션 형태의 데이터를 쉽게 다루고자 SQL을 본따 만든 구문이다.
+
+#### 특징
+
+* 모든 Linq질의는 **from, in, select**키워드를 포함해야 한다.
+
+  ```csharp
+  from <변수 이름(원하는 이름 지정)> in <컬렉션 이름>
+  select <결과에 넣을 요소>
+  
+  // example
+  var result = from item in cars select item;
+  ```
+
+* 익명 객체
+
+  C#에서는 클래스를 만들지 않아도 객체를 생성할 수 있다.
+
+  ```csharp
+  new { id = 2, name = "홍길동" };
+  ```
+
+  이를 Linq랑 결합하면
+
+  ```csharp
+  var output = from item in input where item < 50
+               select new {
+                   val = item,
+                   powval = item * item
+               };
+  output // ex) [{val: 5, powval: 25}, {val: 4, powval: 16}]
+  ```
+
+  이런 문법이 가능하다.
+
+* **Order By** 키워드
+
+  Order By는 정렬을 하는 키워드인데 내림차순, 오름차순이 가능하다.
+
+  * 오름차순 :  `order by item [ascending] // 1 2 3 4 5` (ascending은 안적어도 자동으로 오름차순으로 된다.)
+
+  * 내림차순 :  `order by item [descending] // 5 4 3 2 1` 
+
+
+xml도 책에는 나오지만 문제에는 나오지 않아서 건너뛰겠다.
+
+### 끗!
