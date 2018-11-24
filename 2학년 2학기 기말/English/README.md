@@ -7,4 +7,5 @@
 </p>
 
 ## 본문 해석 ([허찬영](https://github.com/2001hcy))
-* [Chapter 3](./Chapter03.md)
+* [Chapter 3](./Lesson03.md)
+* [Chapter 6](./Lesson06.md)

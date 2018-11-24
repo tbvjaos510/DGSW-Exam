@@ -3,7 +3,7 @@
   <a href="http://www.dgsw.hs.kr/index.do">
     <img src="https://img.shields.io/badge/School-%EB%8C%80%EA%B5%AC%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-brightgreen.svg?longCache=true&style=flat-square">
   </a>
-  <a href="/graphs/contributors">
+  <a href="https://github.com/tbvjaos510/DGSW-Exam/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/tbvjaos510/DGSW-Exam.svg?longCache=true&style=flat-square">
   </a>
   <img src="https://img.shields.io/github/stars/tbvjaos510/DGSW-Exam.svg?longCache=true&style=flat-square">
