@@ -28,7 +28,7 @@
 | `boolean`              | `isLoopbackAddress()`  | loopback주소인지 확인                | loopback=127.0.0.1                                                             |
 | `boolean`              | `isMulticastAddress()` | 멀티캐스트 주소인지 확인                  | 아래에서 확인                                                                        |
 
-> 멀티캐스트 주소란?
+> 멀티캐스트 주소란??
 > 
 > 멀티캐스트 그룹에 참여하는 구성원을 확인하기 위한 주소. 주소범위는 224.0.0.5 ~ 239.255.255.255
 > 
