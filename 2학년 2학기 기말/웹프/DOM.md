@@ -190,19 +190,13 @@ function method () {
   > 
   > ```javascript
   > myWin = window.open("","popups","width=400,height=300");
-
   > myWin.document.open(); // open은 생략이 가능하다고 한다.
-
   > myWin.document.write("<HTML><HEAD><TITLE>SAMPLE</TITLE></HEAD>");
-
   > myWin.document.write("<BODY>");
-
   > myWin.document.write("<P align=center><b>안녕하세요?</B></P>");
-
   > myWin.document.write("</BODY></HTML>");
-myWin.document.close(); 
+  > myWin.document.close(); 
   > // close를 하면 document에 write된 내용들을 전부 브라우저에 출력하고 더이상 쓰기를 금지시킴
-
   > ```
 
 * `createElement(tag)` : 해당 tag로 엘리먼트를 만듦
