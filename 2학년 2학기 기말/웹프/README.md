@@ -1,11 +1,5 @@
 # 웹 프로그래밍
 
-<p align="center">
-      <a href="https://github.com/tbvjaos510/DGSW-Exam#1%EC%9D%BC%EC%B0%A8">
-            <img src="https://img.shields.io/badge/%EC%8B%9C%ED%97%98-1%EC%9D%BC%EC%B0%A8-brightgreen.svg?style=flat-square&longCache=true">
-      </a>
-</p>
-
 ## 셤 범위
 
 * 학습지 1~5
@@ -200,8 +194,11 @@ console.log(test.num); // 5
     time.setFullYear(2017);
     console.log(time.toLocaleString()); // "2017. 1. 1. 오전 12:00:00"
     ```
+
   * `set/getMonth()` : 현재 월 설정/가져오기, **월은 0에서 11까지**
+
   * `set/getDate()` : 현재 날짜 설정/가져오기 (1부터 시작)
+
   * `set/getDay()` : 현재 요일 설정/가져오기 (0~6, 일~토)
 
     > Date와 Day를 헷갈리지 말자. 
@@ -297,9 +294,9 @@ var account = {
 
   > ```html
   > <div id="main">
-  >     <a href="www.naver.com" id="help">
-  >         Hello
-  >     </a>
+  >     <a href="www.naver.com" id="help">
+  >         Hello
+  >     </a>
   > </div>
   > ```
   > 
@@ -322,5 +319,7 @@ var account = {
 * HTML 태그 하나당 하나의 DOM 객체가 생성된다.
 
 * DOM 트리는 HTML태그의 포함단계에 따라 부모자식관계를 가진다.
+
+### [DOM 트리의 프로퍼티와 메소드에 대한 자세한 설명들](./DOM.md)
 
 
