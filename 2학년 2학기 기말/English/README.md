@@ -15,6 +15,9 @@
 * Lesson 5 
 * [Lesson 6](./Lesson06.md)
 * Lesson 8
+* [Reading ①](https://github.com/tbvjaos510/DGSW-Exam/blob/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/English/Reading%20%E2%91%A0.md)
+* [Reading ②](https://github.com/tbvjaos510/DGSW-Exam/blob/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/English/Reading%20%E2%91%A1.md)
+* [Reading ③](https://github.com/tbvjaos510/DGSW-Exam/blob/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/English/Reading%20%E2%91%A2.md)
 
 ## 일정(계획)
 
