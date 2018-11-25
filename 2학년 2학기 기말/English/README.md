@@ -15,10 +15,13 @@
 * Lesson 5 
 * [Lesson 6](./Lesson06.md)
 * Lesson 8
+* [Reading ①](https://github.com/tbvjaos510/DGSW-Exam/blob/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/English/Reading%20%E2%91%A0.md)
+* [Reading ②](https://github.com/tbvjaos510/DGSW-Exam/blob/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/English/Reading%20%E2%91%A1.md)
+* [Reading ③](https://github.com/tbvjaos510/DGSW-Exam/blob/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/English/Reading%20%E2%91%A2.md)
 
 ## 일정(계획)
 
-- [ ] ~11.25: Reading ①,②,③ 해석, 각 본문 반드시 알아야 할 단어들 정리
+- [x] ~11.25: Reading ①,②,③ 해석, 각 본문 반드시 알아야 할 단어들 정리
 
 - [ ] ~11.27: 레슨 3,5,6,8 문법 정리, 전체 단어 정리(PDF)
 
