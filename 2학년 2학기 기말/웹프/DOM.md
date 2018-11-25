@@ -110,7 +110,7 @@ function method () {
 
 * `location` : 현재 문서의 URL 정보를 가진 location 객체의 레퍼런스
 
-* `domain` : ~~서버의 도메인 이름~~ **존재하지 않는다.** (학습지 무엇?)
+* `domain` : 서버의 도메인 이름
 
 * `referrer` : 이 문서를 로드한 원래 문서의 URL 문자열. 없으면 빈 문자열.
 
