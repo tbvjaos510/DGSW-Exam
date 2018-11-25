@@ -7,7 +7,8 @@
     <img src="https://img.shields.io/github/contributors/tbvjaos510/DGSW-Exam.svg?longCache=true&style=flat-square">
   </a>
   <img src="https://img.shields.io/github/stars/tbvjaos510/DGSW-Exam.svg?longCache=true&style=flat-square">
-  
+
+  <img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Ftbvjaos510%2FDGSW-Exam%2Fhit-counter" alt="Hits">
 </p>
 
 ## 참고사항
