@@ -60,7 +60,7 @@
 
 **batter** : 반죽
 
-**time for ~** : ~할 때, ~할 시간
+**time for \~** : ~할 때, ~할 시간
 
 **ingredient** : 재료, 성분
 
@@ -88,7 +88,7 @@
 
 **abundant**: 풍부한
 
-**would go on ~** : 앞으로도 ~할 것이다.
+**would go on \~** : 앞으로도 ~할 것이다.
 
 **classic** : 대표적인,전통적인 / 본문 中 all-American classic 은 "미국 전역을 대표하는"정도가 되겠다.
 
