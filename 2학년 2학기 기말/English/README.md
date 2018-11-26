@@ -26,3 +26,15 @@
 - [ ] ~11.27: 레슨 3,5,6,8 문법 정리, 전체 단어 정리(PDF)
 
 - [ ] ~11.28: 읽기자료 전체 정리(예시문장, 알아둬야 할 표현)
+
+
+## 읽기 단어들 (Quizlet)
+
+#### 작성자 : 김성훈
+
+1. [읽기자료 1](https://quizlet.com/343225350/읽기-1-flash-cards/)
+2. [읽기자료 2](https://quizlet.com/343225350/읽기-2-flash-cards/)
+3. [읽기자료 3](https://quizlet.com/343225350/읽기-3-flash-cards/)
+4. [읽기자료 4](https://quizlet.com/343225350/읽기-4-flash-cards/)
+5. [읽기자료 5](https://quizlet.com/343225350/읽기-5-flash-cards/)
+6. [읽기자료 6](https://quizlet.com/343225350/읽기-6-flash-cards/)
