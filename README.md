@@ -7,7 +7,8 @@
     <img src="https://img.shields.io/github/contributors/tbvjaos510/DGSW-Exam.svg?longCache=true&style=flat-square">
   </a>
   <img src="https://img.shields.io/github/stars/tbvjaos510/DGSW-Exam.svg?longCache=true&style=flat-square">
-  
+
+  <img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Ftbvjaos510%2FDGSW-Exam%2Fhit-counter" alt="Hits">
 </p>
 
 ## 참고사항
@@ -28,7 +29,7 @@
 
   - [ ] [네트워크 프로그래밍](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC)
 
-  - [ ] [웹 프로그래밍 기초](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%9B%B9%ED%94%84)
+  - [x] [웹 프로그래밍 기초](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%9B%B9%ED%94%84)
 
 - ### 2일차
 

@@ -3,6 +3,7 @@
 ## 셤 범위
 
 * 학습지 1~5
+* [핑----퐁 만들기](#핑퐁-만들기)
 
 ### 갓갓언어 Javascript
 
@@ -13,6 +14,10 @@
 무조건 학습지 위주로만 합니당.
 
 또한 **예제 코드들은 전부 Chrome Developer Tools의 Console에서 작동시켰습니다.**
+
+
+
+### 웹프는 시험 쉽게 나온다니까 대충 훑어보면 될거 같다.
 
 ## 학습지 1 - JS 코어 객체1
 
@@ -320,6 +325,81 @@ var account = {
 
 * DOM 트리는 HTML태그의 포함단계에 따라 부모자식관계를 가진다.
 
+
+
+## 아래 두 단원은 깊숙히 정리해놓은 자료들이다.
+
 ### [DOM 트리의 프로퍼티와 메소드에 대한 자세한 설명들](./DOM.md)
 
 ## [이벤트](./Event.md)
+
+
+
+## Canvas 사용
+
+1. HTML에 canvas 추가
+
+   ```html
+   <canvas id="myCanvas" width="480" height="320"></canvas>
+   ```
+
+2. Javascript에서 canvas 사용
+
+   ```javascript
+   var canvas = document.getElementById("myCanvas");
+   var context = canvas.getContext("2d"); // 2d로 랜더링
+   
+   context.beginPath(); // Path 생성
+   context.rect(20, 40, 50, 50); // x:20, y:40 지점에 width:50, height:50만큼의 도형 그리기
+   context.fillStyle = "#FF0000"; // #FF0000(빨강)으로 색 지정
+   context.fill(); // Path 채우기
+   context.closePath(); // Path 닫기
+   ```
+
+   > 여기서 Path란?
+   > 
+   > Path는 선을 그릴 때 사용하는 방법이다.
+   > 
+   > `beginPath()`로 선을 시작하면 `closePath()`할 때 까지 점이나 선을 저장한다.
+   > 
+   > `fill()` 은 연결된 선들을 채우는 것이고 `stroke()`는 연결된 선을 잇는 것이다.
+
+3. Gradient 사용
+
+   ```javascript
+   var gradient = context.createLinearGradient(0, 0, 170, 0);
+   // 인자 값: (시작 x, 시작 y, 끝 x, 끝 y); 즉 위 코드는 가로로 그라데이션 한다.
+   gradient.addColorStop("0", "black"); // 0~1까지의 색을 지정하면 자동으로 자연스럽게 이어준다.
+   gradient.addColorStop("0.5", "blue"); // 중간 색 설정
+   gradient.addColorStop("1.0", "red"); // 끝 색 설정
+   context.strokeStyle = gradient; // 색을 그라데이션으로 정함
+   context.lineWidth = 5;
+   context.strokeRect(10, 200, 170, 100); // 사각형을 그린다.
+   ```
+
+### 핑퐁 만들기
+
+중요 메소드만 몇 개 소개하겠다.
+
+* `context.fillStyle(color)` : 그리는 색을 정한다.
+
+* `context.fillRect(x, y, width, height)` :  채운 사각형을 그린다.
+
+* `context.arc(x, y, radius, startAngle, endAngle, anticlockwise)` : 원을 그린다. (path안에서 사용)
+
+  * startAngle: 곡선을 나타내는 radius의 시작점 (0~Math.PI\*2)
+
+  * endAngle: 곡선을 나타내는 radius의 끝점 (0~Math.PI\*2)
+
+  * anticlockwise (시계 반대 방향으로 그릴 건지) : 해석 그대로 시계 반대방향으로 그릴 건지 `boolean` 값으로 되어 있다.
+
+  예시 : 원 그리기
+
+  ```javascript
+  context.arc(50, 50, 10, 0, Math.PI*2, true); // (50, 50)에 반지름이 10인 원을 그린다.
+  context.arc(50, 50, 5, 0, Math.PI, false); // 시계 방향으로 반 원을 그린다. 상현달 모양
+  // 물론 아래 코드를 적어야 그려짐
+  context.fill();
+  ```
+
+
