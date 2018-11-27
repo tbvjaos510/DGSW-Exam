@@ -4,12 +4,6 @@
       <a href="https://github.com/tbvjaos510/DGSW-Exam#2%EC%9D%BC%EC%B0%A8">
             <img src="https://img.shields.io/badge/%EC%8B%9C%ED%97%98-2%EC%9D%BC%EC%B0%A8-brightgreen.svg?style=flat-square&longCache=true">
       </a>
-      <a href="./pdf/README.pdf">
-        <img src="https://img.shields.io/badge/pdf-ready-brightgreen.svg?style=flat-square">
-      </a>
-      <a href="./html/README.html">
-        <img src="https://img.shields.io/badge/html-ready-brightgreen.svg?style=flat-square">
-      </a>
 </p>
 
 ## 시험범위

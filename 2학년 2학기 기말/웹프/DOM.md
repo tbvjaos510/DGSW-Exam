@@ -1,14 +1,5 @@
 # DOM 프로퍼티, 컬렉션, 메소드
 
-<p align="center">
-      <a href="./pdf/DOM.pdf">
-        <img src="https://img.shields.io/badge/pdf-ready-brightgreen.svg?style=flat-square">
-      </a>
-      <a href="./DOM.html">
-        <img src="https://img.shields.io/badge/html-ready-brightgreen.svg?style=flat-square">
-      </a>
-</p>
-
 ## 프로퍼티들
 
 ```html
