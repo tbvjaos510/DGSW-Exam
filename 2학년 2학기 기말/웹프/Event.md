@@ -1,5 +1,14 @@
 # Javscript 이벤트
 
+<p align="center">
+      <a href="./pdf/Event.pdf">
+        <img src="https://img.shields.io/badge/pdf-ready-brightgreen.svg?style=flat-square">
+      </a>
+      <a href="./Event.html">
+        <img src="https://img.shields.io/badge/html-ready-brightgreen.svg?style=flat-square">
+      </a>
+</p>
+
 ### 이벤트 : 마우스 클릭, 키보드 입력 등등 이 발생하면 자바스크립트에 알리는 것이다.
 
 ## 이벤트 종류 (외울 필요 없다)

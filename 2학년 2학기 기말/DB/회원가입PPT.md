@@ -1,5 +1,14 @@
 # DB-회원가입 PPT
 
+<p align="center">
+      <a href="./pdf/Signup.pdf">
+        <img src="https://img.shields.io/badge/pdf-ready-brightgreen.svg?style=flat-square">
+      </a>
+      <a href="./Signup.html">
+        <img src="https://img.shields.io/badge/html-ready-brightgreen.svg?style=flat-square">
+      </a>
+</p>
+
 > 시험에 어떻게 나올지 상상도 안간다.
 
 ## 참조 추가
