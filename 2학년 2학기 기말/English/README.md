@@ -28,9 +28,8 @@
 - [ ] ~11.28: 읽기자료 전체 정리(예시문장, 알아둬야 할 표현)
 
 
-## 읽기 단어들 (Quizlet)
+## 읽기 단어들 (Quizlet) [김성훈](https://github.com/castlehun)
 
-#### 작성자 : 김성훈
 
 1. [읽기자료 1](https://quizlet.com/343225350/읽기-1-flash-cards/)
 2. [읽기자료 2](https://quizlet.com/343225350/읽기-2-flash-cards/)
