@@ -265,15 +265,15 @@ OnClick = (sender) => {
 
 ## Chapter 12 - Linq
 
-| 문제 번호 | 정답                                                       | 풀이                                          |
-| ----- | -------------------------------------------------------- | ------------------------------------------- |
-| 01    | `output = from item in input where item < 4 select item` | 예제에서 4 미만인 숫자를 리스트에 더한다.                    |
-| 02    | `...input where item % 4 == 1 select item`               | 위 예제와 초반은 같지만 조건이 다르다                       |
-| 03    | `...4 == 1 order by item select item`                    | 문제 자체에서는 정렬이 된 상태라서 정렬이 필요 없지만 키워드가 있으니 적자. |
-| 04    | `...order by item descending`                            | 내림차순은 descending 키워드를 적는다.                  |
-| 05-1  | `from item in products order by item.Name`               | 객체를 LinQ로 사용하려면 . 으로 접근한다.                  |
-| 05-2  | `... where item.Price<2000 order by item.Price`          | 반대로 변환할 수 도 있어야 한다.                         |
-| 05-3  | `...item.Price descending`                               | Reverse()를 사용했으므로 내림차순으로 한다.                |
+| 문제 번호 | 정답                                                          | 풀이                                          |
+| ----- | ----------------------------------------------------------- | ------------------------------------------- |
+| 01    | `output = from item in input where item < 4 select item`    | 예제에서 4 미만인 숫자를 리스트에 더한다.                    |
+| 02    | `...input where item % 4 == 1 select item`                  | 위 예제와 초반은 같지만 조건이 다르다                       |
+| 03    | `...4 == 1 order by item select item`                       | 문제 자체에서는 정렬이 된 상태라서 정렬이 필요 없지만 키워드가 있으니 적자. |
+| 04    | `...order by item descending select item`                   | 내림차순은 descending 키워드를 적는다.                  |
+| 05-1  | `from item in products order by item.Name select item`      | 객체를 LinQ로 사용하려면 . 으로 접근한다.                  |
+| 05-2  | `... where item.Price<2000 order by item.Price select item` | 반대로 변환할 수 도 있어야 한다.                         |
+| 05-3  | `...item.Price descending select item`                      | Reverse()를 사용했으므로 내림차순으로 한다.                |
 
 ### 상세 설명
 
