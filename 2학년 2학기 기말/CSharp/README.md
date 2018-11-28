@@ -1,4 +1,4 @@
-# C\
+# C\#
 
 <p align="center">
       <a href="https://github.com/tbvjaos510/DGSW-Exam#2%EC%9D%BC%EC%B0%A8">
@@ -154,7 +154,7 @@
   Consle.WriteLine(((Parent)child).Do()); // 5
   ```
 
-  > virtual을 쓰지 않으면 overide에서 오류가 발생한다.
+  > virtual을 쓰지 않으면 override에서 오류가 발생한다.
 
 ## Chapter 08 - 클래스 심화
 
