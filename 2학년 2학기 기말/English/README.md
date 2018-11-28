@@ -30,8 +30,8 @@
 ## 읽기 단어들 (Quizlet) [김성훈](https://github.com/castlehun)
 
 1. [읽기자료 1](https://quizlet.com/343225350/읽기-1-flash-cards/)
-2. [읽기자료 2](https://quizlet.com/343225350/읽기-2-flash-cards/)
-3. [읽기자료 3](https://quizlet.com/343225350/읽기-3-flash-cards/)
-4. [읽기자료 4](https://quizlet.com/343225350/읽기-4-flash-cards/)
-5. [읽기자료 5](https://quizlet.com/343225350/읽기-5-flash-cards/)
-6. [읽기자료 6](https://quizlet.com/343225350/읽기-6-flash-cards/)
+2. [읽기자료 2](https://quizlet.com/343228920/읽기-2-flash-cards/)
+3. [읽기자료 3](https://quizlet.com/343229395/읽기-3-flash-cards/)
+4. [읽기자료 4](https://quizlet.com/343229868/읽기-4-flash-cards/)
+5. [읽기자료 5](https://quizlet.com/343231306/읽기-5-flash-cards/)
+6. [읽기자료 6](https://quizlet.com/343232075/읽기-6-flash-cards/)
