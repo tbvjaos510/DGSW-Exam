@@ -1,7 +1,7 @@
 # C\#
 
 <p align="center">
-      <a href="https://github.com/tbvjaos510/DGSW-Exam#1%EC%9D%BC%EC%B0%A8">
+      <a href="https://github.com/tbvjaos510/DGSW-Exam#2%EC%9D%BC%EC%B0%A8">
             <img src="https://img.shields.io/badge/%EC%8B%9C%ED%97%98-2%EC%9D%BC%EC%B0%A8-brightgreen.svg?style=flat-square&longCache=true">
       </a>
 </p>
@@ -69,7 +69,7 @@
 | 09    | 20                               | 위랑 같다. 부모는 virtual하였지만 자식이 하이딩 하였다.                                   |
 | 10    | 20                               | 위랑 같다. 오버로딩 하였지만 자식만을 사용한다.                                           |
 | 11    | O,O,O,O,X,X,X                    | 6번은 ~~오버로딩~~, 오버라이딩이 안됨.                                              |
-| 12    | 2                                | 부모에 자식은 못담는다. 대신 자식에는 부모를 담을 수 있음.                                    |
+| 12    | 3                                | 자식에 부모는 못담는다. 대신 부모에는 자식을 담을 수 있음.                                    |
 
 ### 섀도잉와 하이딩
 
@@ -154,7 +154,7 @@
   Consle.WriteLine(((Parent)child).Do()); // 5
   ```
 
-  > virtual을 쓰지 않으면 overide에서 오류가 발생한다.
+  > virtual을 쓰지 않으면 override에서 오류가 발생한다.
 
 ## Chapter 08 - 클래스 심화
 
@@ -174,6 +174,19 @@
 | 복사         | 참조 복사(포인터)     | 값 복사               |
 | 생성자 규칙     | 어느 형태든 가능      | 모든 멤버 변수를 초기화 해야함. |
 | 맴버 변수의 초기화 | 선언과 동시에 초기화 O  | 선언과 동시에 초기화 X      |
+
+### ref, out
+
+#### 하나는 포인터, 하나는 리턴을 여러개
+
+```csharp
+void Do(ref int b) {
+    b = 3; // 이 줄이 없어도 된다.
+}
+void Do(out int b) {
+    b = 4; // 이 줄이 없으면 컴파일 오류 발생
+}
+```
 
 ## Chapter 09 - 인터페이스
 
@@ -225,7 +238,7 @@
 | 02    | 3                         | catch나 finally는 생략할 수 있다. 하지만 finally는 제일 마지막에 있어야 한다.                                        |
 | 03    | 2                         | `throw Exception()` 으로 예외를 발생시킨다.                                                             |
 | 04    | 문법 오류 : 1, 4 / 예외 발생 2, 3 | 1: `new string[5];`2: `FormatException` 발생 3:`IndexOutOfRangeException` 발생 4: `new Random();` |
-| 05    | X, O, O, O, O, O          | 1번은 밑에서 다루겠다. 나머지는 책 참고                                                                       |
+| 05    | △, O, O, O, O, O          | 1번은 밑에서 다루겠다. 나머지는 책 참고                                                                       |
 
 > try 구문에서 발생할 수 있는 예외의 종류가 다양하면, 이를 처리하기 위해 catch 구문을 여러번 사용해야한다?
 
@@ -263,19 +276,17 @@ OnClick = (sender) => {
 
 익명함수가 훨씬 간단해 보인다.
 
-
-
 ## Chapter 12 - Linq
 
-| 문제 번호 | 정답                                                       | 풀이                                          |
-| ----- | -------------------------------------------------------- | ------------------------------------------- |
-| 01    | `output = from item in input where item < 4 select item` | 예제에서 4 미만인 숫자를 리스트에 더한다.                    |
-| 02    | `...input where item % 4 == 1 select item`               | 위 예제와 초반은 같지만 조건이 다르다                       |
-| 03    | `...4 == 1 order by item select item`                    | 문제 자체에서는 정렬이 된 상태라서 정렬이 필요 없지만 키워드가 있으니 적자. |
-| 04    | `...order by item descending`                            | 내림차순은 descending 키워드를 적는다.                  |
-| 05-1  | `from item in products order by item.Name`               | 객체를 LinQ로 사용하려면 . 으로 접근한다.                  |
-| 05-2  | `... where item.Price<2000 order by item.Price`          | 반대로 변환할 수 도 있어야 한다.                         |
-| 05-3  | `...item.Price descending`                               | Reverse()를 사용했으므로 내림차순으로 한다.                |
+| 문제 번호 | 정답                                                          | 풀이                                          |
+| ----- | ----------------------------------------------------------- | ------------------------------------------- |
+| 01    | `output = from item in input where item < 4 select item`    | 예제에서 4 미만인 숫자를 리스트에 더한다.                    |
+| 02    | `...input where item % 4 == 1 select item`                  | 위 예제와 초반은 같지만 조건이 다르다                       |
+| 03    | `...4 == 1 order by item select item`                       | 문제 자체에서는 정렬이 된 상태라서 정렬이 필요 없지만 키워드가 있으니 적자. |
+| 04    | `...order by item descending select item`                   | 내림차순은 descending 키워드를 적는다.                  |
+| 05-1  | `from item in products order by item.Name select item`      | 객체를 LinQ로 사용하려면 . 으로 접근한다.                  |
+| 05-2  | `... where item.Price<2000 order by item.Price select item` | 반대로 변환할 수 도 있어야 한다.                         |
+| 05-3  | `...item.Price descending select item`                      | Reverse()를 사용했으므로 내림차순으로 한다.                |
 
 ### 상세 설명
 
@@ -321,7 +332,6 @@ OnClick = (sender) => {
   * 오름차순 :  `order by item [ascending] // 1 2 3 4 5` (ascending은 안적어도 자동으로 오름차순으로 된다.)
 
   * 내림차순 :  `order by item [descending] // 5 4 3 2 1` 
-
 
 xml도 책에는 나오지만 문제에는 나오지 않아서 건너뛰겠다.
 

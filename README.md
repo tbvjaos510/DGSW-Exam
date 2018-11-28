@@ -19,13 +19,14 @@
 * 2학년 2학기 문서 중 일부 문서들은 Latex를 사용합니다. 깃허브에서 볼려면 [크롬 익스텐션(MathJax Plugin for Github)](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima)를 설치해 주세요
 * 같이 만들고 싶으면 말하면 콜라보레이터 추가해드릴게요~
 * **볼때 별 하나씩만 달아줘요 ㅠㅠㅠㅠㅠㅠ**
-* 문서를 볼 때 오류나 오타가 보이면 직접 수정해 주세요 - [여기](HOW-Contribute.md) 참고
+* 문서를 볼 때 오류나 오타가 보이면 직접 수정해 주세요 - [여기](CONTRIBUTE.md) 참고
+* 마크다운문서는 웹에서 쉽게 **프린트** 할 수 있습니다. - [여기](PRINT.md)를 참고해 주세요
 
 ## 2학년 2학기 작업 상태
 
 - ### 1일차
 
-  - [ ] 화법과 작문
+  - [ ] [화법과 작문](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%ED%99%94%EC%9E%91)
 
   - [ ] [네트워크 프로그래밍](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC)
 

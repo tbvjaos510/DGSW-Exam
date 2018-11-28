@@ -56,7 +56,7 @@ var web = document.getElementById("web");
 
 | 컬렉션      | 설명             | 예시                                               |
 | -------- | -------------- | ------------------------------------------------ |
-| children | 모든 자식 엘리먼트의 배열 | `parent.children //[li, li, li, li]` (Read Only) |
+| children | 모든 자식 엘리먼트의 배열 | `parent.children //[li, li, li, li]` (Read Only) |
 
 ### 크기와 위치
 
@@ -67,15 +67,13 @@ var web = document.getElementById("web");
 | offsetLeft   | 왼쪽 시작점 |
 | offsetTop    | 위쪽 시작점 |
 
-
-
 ## 메소드들
 
 ```html
 <form action="/submits" id="login">
-    <input type="text" id="id"/>
-    <input type="password" id="pw"/>
-    <input type="submit" value="제출" id="submit" />
+    <input type="text" id="id"/>
+    <input type="password" id="pw"/>
+    <input type="submit" value="제출" id="submit" />
 </form>
 ```
 
@@ -92,15 +90,15 @@ function method () {
 
 | 메소드 명                 | 설명                         | 예시                                                                      |
 | --------------------- | -------------------------- | ----------------------------------------------------------------------- |
-| addEventListener()    | 이벤트 리스너 등록                 | `txtId.addEventListener('click', method)`  click할 때 method를 실행          |
-| appendChild()         | 자식 엘리먼트 추가                 | `loginForm.appendChild(br)` 마지막에 br 태그를 추가한다.                           |
-| click()               | 엘리먼트 클릭                    | `btnSubmit.click()` 폼이 강제로 제출된다.                                        |
-| focus()               | 포커스를 가지게 함                 | `txtId.focus()` 아이디 입력창으로로 포커스가 강제로 옮겨진다.                               |
-| setAttribute()        | 객체의 속성지정                   | `btnSubmit.setAttribute("value","로그인")` 버튼이 로그인으로 바뀐다                   |
-| insertBefore()        | 자식 엘리먼트를 특정 엘리먼트 뒤에 추가.    | `loginForm.insertBefore(br, txtId)` id 입력창 뒤에 한칸 띄어진다.                  |
-| querySelector()       | 지정된 css객체와 일치하는 첫 번째 자식 리턴 | `loginForm.querySelector("input[type=password]")` txtPw과 같은 엘리먼트가 선택됨.  |
-| removeChild()         | 자식을 삭제한다                   | `loginForm.removeChild(btnSubmit)` 제출 버튼이 없어진다.                         |
-| removeEventListener() | 이벤트 리스너를 제거한다              | `txtId.removeEventListener('click', method)` click할 때 메소드를 이제 실행하지 않는다. |
+| addEventListener()    | 이벤트 리스너 등록                 | `txtId.addEventListener('click', method)`  click할 때 method를 실행          |
+| appendChild()         | 자식 엘리먼트 추가                 | `loginForm.appendChild(br)` 마지막에 br 태그를 추가한다.                           |
+| click()               | 엘리먼트 클릭                    | `btnSubmit.click()` 폼이 강제로 제출된다.                                        |
+| focus()               | 포커스를 가지게 함                 | `txtId.focus()` 아이디 입력창으로로 포커스가 강제로 옮겨진다.                               |
+| setAttribute()        | 객체의 속성지정                   | `btnSubmit.setAttribute("value","로그인")` 버튼이 로그인으로 바뀐다                   |
+| insertBefore()        | 자식 엘리먼트를 특정 엘리먼트 뒤에 추가.    | `loginForm.insertBefore(br, txtId)` id 입력창 뒤에 한칸 띄어진다.                  |
+| querySelector()       | 지정된 css객체와 일치하는 첫 번째 자식 리턴 | `loginForm.querySelector("input[type=password]")` txtPw과 같은 엘리먼트가 선택됨.  |
+| removeChild()         | 자식을 삭제한다                   | `loginForm.removeChild(btnSubmit)` 제출 버튼이 없어진다.                         |
+| removeEventListener() | 이벤트 리스너를 제거한다              | `txtId.removeEventListener('click', method)` click할 때 메소드를 이제 실행하지 않는다. |
 
 ## document 객체 사용
 
@@ -204,5 +202,3 @@ function method () {
   ```javascript
   var atag = document.createElement("a");
   ```
-
-

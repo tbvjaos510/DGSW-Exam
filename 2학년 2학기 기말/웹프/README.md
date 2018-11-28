@@ -1,9 +1,16 @@
 # 웹 프로그래밍
 
+<p align="center">
+      <a href="https://github.com/tbvjaos510/DGSW-Exam#1%EC%9D%BC%EC%B0%A8">
+            <img src="https://img.shields.io/badge/%EC%8B%9C%ED%97%98-1%EC%9D%BC%EC%B0%A8-brightgreen.svg?style=flat-square&longCache=true">
+      </a>
+</p>
+
 ## 셤 범위
 
 * 학습지 1~5
 * [핑----퐁 만들기](#핑퐁-만들기)
+* [PHP](./PHP.md)
 
 ### 갓갓언어 Javascript
 
