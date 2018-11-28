@@ -225,7 +225,7 @@
 | 02    | 3                         | catch나 finally는 생략할 수 있다. 하지만 finally는 제일 마지막에 있어야 한다.                                        |
 | 03    | 2                         | `throw Exception()` 으로 예외를 발생시킨다.                                                             |
 | 04    | 문법 오류 : 1, 4 / 예외 발생 2, 3 | 1: `new string[5];`2: `FormatException` 발생 3:`IndexOutOfRangeException` 발생 4: `new Random();` |
-| 05    | X, O, O, O, O, O          | 1번은 밑에서 다루겠다. 나머지는 책 참고                                                                       |
+| 05    | △, O, O, O, O, O          | 1번은 밑에서 다루겠다. 나머지는 책 참고                                                                       |
 
 > try 구문에서 발생할 수 있는 예외의 종류가 다양하면, 이를 처리하기 위해 catch 구문을 여러번 사용해야한다?
 
