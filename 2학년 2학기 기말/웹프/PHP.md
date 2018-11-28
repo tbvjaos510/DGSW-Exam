@@ -116,9 +116,9 @@
 
   ```html
   <form name="form1" method="post" action="a.php"> <!-- a.php에 post방식으로 보내겠다. -->
-      이름 : <input type="text" name="userName"><br> 
-      <!-- 폼값을 받을 때의 key값은 name 속성의 값으로 정해진다. -->
-      <input type="submit" value="전송">
+      이름 : <input type="text" name="userName"><br> 
+      <!-- 폼값을 받을 때의 key값은 name 속성의 값으로 정해진다. -->
+      <input type="submit" value="전송">
   </form>
   ```
 
@@ -182,7 +182,45 @@
 
 * `isset` 함수
 
-  `isset(var)` 함수는 인수로 지정한 변수의 값이 설정되었는지 `boolean` 값을 반환한다.
+  `isset(var)` 함수는 인수로 지정한 변수의 값이 설정(선언?)되었는지 `boolean` 값을 반환한다.
+
+### PHP 3
+
+* 폼 유효성 검사
+
+  * `string trim(str)` : 공백 제거 (리턴 값을 받아야 한다)
+
+  * `string stripslashes(str)` : 역슬래시 제거 (리턴 값을 받아야 한다)
+
+  * `string htmlspecialchars(str)` : html 태그 무효화 (리턴 값을 받아야 한다)
+
+  ```php
+  function data_check($data) {
+      $data = trim($data); // 공백 제거
+      $data = stripslashes($data); // 역슬래시 제거
+      $data - htmlspacialchars($data); // html 태그 무효화
+      return $data;
+  }
+  ```
+
+* 이메일 유효성 검사
+
+  * `filter_var(str, option)` : 데이터 유효성 검사.
+
+  * 옵션들
+
+    * `FILTER_VALIDATE_EMAIL` : 이메일이 유효한지 검사.
+
+    * `FILTER_VALIDATE_URL` : URL이 유효한지 검사.
+
+    ```php
+    if (filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL)) {
+        // 이메일이 유효할 때
+    }
+    if (!filter_var($_REQUEST['url'], FILTER_VALIDATE_URL)) {
+        // URL이 유효하지 않을 때
+    }
+    ```
 
 
 

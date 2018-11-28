@@ -1,4 +1,4 @@
-# C\#
+# C\
 
 <p align="center">
       <a href="https://github.com/tbvjaos510/DGSW-Exam#2%EC%9D%BC%EC%B0%A8">
