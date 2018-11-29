@@ -13,6 +13,7 @@
 - 59p ~ 218p??
 
 ### 학습지 무조건 보세요. 이건 참고용입니다.
+
 ### 시험 담주에 친데ㅓ ㅇㅁㄴ리ㅓㅁㅇ나ㅣ러ㄴㅇㄹ
 
 ## 1. 학습자료 1 - INetAddress 클래스
@@ -310,7 +311,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
   }
   ```
 
-  1. 여기서 보면 `clientSocket`은 포트를 설정하지 않았지만 서버로부터 `receive()`를 수행한다. 이게 가능한 이유가 서버에서 `getPort()`를 했을 때 값은 41032(다를 수 있다) 대충 이런 클라이언트 패킷에서 보낸 임시 포트가 나오는데, 클라이언트에서 `sendPacket`을 전송할 때 보내는 임시포트는 `clientSocket`에 암시적으로 저장이 된다. 그리고 `receive`를 호출하면 `send()`했던 임시 포트를 이용해  receive를 한다. - [참고 자료](https://stackoverflow.com/a/29337540)
+  1. 여기서 보면 `clientSocket`은 포트를 설정하지 않았지만 서버로부터 `receive()`를 수행한다. 이게 가능한 이유가 서버에서 `getPort()`를 했을 때 값은 41032(다를 수 있다) 대충 이런 클라이언트 패킷에서 보낸 임시 포트가 나오는데, 이 임시 포트는 클라이언트에서 `DatagramSocket clientSocket = new DatagramSocket()` 할 때 자동으로 생성이 된다.그리고 `receive`를 호출하면 해당 임시 포트를 이용해  receive를 한다. - [참고 자료](https://stackoverflow.com/a/29337540)
 
 ## UDP 멀티캐스팅
 
