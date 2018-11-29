@@ -77,7 +77,7 @@
 
 * **섀도잉**
 
-  C언어 기반의 프로그래밍 언어의 대부분은 이름이 겹칠 대 자신과 가장 가까운 변수를 사용한다.
+  C언어 기반의 프로그래밍 언어의 대부분은 이름이 겹칠 때 자신과 가장 가까운 변수를 사용한다.
 
   ```csharp
   class Program
@@ -224,7 +224,7 @@ void Do(out int b) {
   IBasic basic = new TestClass();
   ```
 
-* 인터페이스는 매너로 앞에 대분자 I를 항상 추가한다.
+* 인터페이스는 매너로 앞에 대문자 I를 항상 추가한다.
 
   ```csharp
   IDisposable, IComparable
