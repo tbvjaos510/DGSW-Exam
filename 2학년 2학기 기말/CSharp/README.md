@@ -224,7 +224,7 @@ void Do(out int b) {
   IBasic basic = new TestClass();
   ```
 
-* 인터페이스는 매너로 앞에 대분자 I를 항상 추가한다.
+* 인터페이스는 매너로 앞에 대문자 I를 항상 추가한다.
 
   ```csharp
   IDisposable, IComparable
