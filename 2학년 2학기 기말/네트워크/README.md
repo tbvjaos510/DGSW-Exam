@@ -13,6 +13,7 @@
 - 59p ~ 218p??
 
 ### 학습지 무조건 보세요. 이건 참고용입니다.
+### 시험 담주에 친데ㅓ ㅇㅁㄴ리ㅓㅁㅇ나ㅣ러ㄴㅇㄹ
 
 ## 1. 학습자료 1 - INetAddress 클래스
 
@@ -364,11 +365,11 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
           // 역시나 클라이언트도 방에 참여한다.
           InetAddress inetAddress = InetAddress.getByName("228.5.6.7");
           multicastSocket.joinGroup(inetAddress);
-          
+  
           // 받을 패킷을 생성
           byte[] data = new byte[256];
           DatagramPacket packet = new DatagramPacket(data, data.length);
-          
+  
           while(true) {
               // 멀티캐스트 서버에서 패킷을 수신한다.
               multicastSocket.receive(packet);
@@ -378,7 +379,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
               System.out.println("Message from: " + packet.getAddress()
                       + " Message: ["+ message + "]");
           }
-          
+  
       } catch (IOException ex) {
           ex.printStackTrace();
       }
@@ -445,64 +446,42 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
   **서버**
 
   ```java
+  
   public static void main(String[] args) {
+  
       // 서버를 연다 (이름이 드럽게 길다)
       try (AsynchronousServerSocketChannel serverChannel = AsynchronousServerSocketChannel.open()) {
           // 연결할 서버 IP
-  		InetSocketAddress hostAddress = new InetSocketAddress("localhost", 5000);
-
-  		serverChannel.bind(hostAddress); // bind 한다.
-
-  		System.out.println("Waiting for client to connect...");
-
-  		// Future을 리턴하는데, 이는 대기하지 않고 바로 다음을 실행한다
-  		Future acceptResult = serverChannel.accept();
-
-  		System.out.println("Waiting Accept...");
-  		
-  		// 하지만 여기서 .get()을 호출했으므로 여기서 대기하게 된다.
-  		try (AsynchronousSocketChannel clientChannel = (AsynchronousSocketChannel)acceptResult.get())
-
-  		{
-  			System.out.println("Messages from cilent: ");
-  			// clientChanel이 null이 아니거나 열리지 않았을 때 1번 참고
-
-  			while ((clientChannel != null) && (clientChannel.isOpen())) {
-
-  				ByteBuffer buffer = ByteBuffer.allocate(32);
-  				// AsynchronousServerSocketChannl의 거의 모든 소켓 메소드는 Future로 반환한다.
-
-  				Future result = clientChannel.read(buffer);
-
-  				
-
-  				// Timeout 10초 설정 2번 참고
-
-  				result.get(10, TimeUnit.SECONDS);
-
-  				// Position을 초기화 시킨다. 3번 참고
-  				buffer.flip();
-
-  				// 역시나 3번 참고
-  				String message = new String(buffer.array()).trim();
-
-  				System.out.println(message);
-
-  				if (message.equals("quit")) {
-
-  					break;
-
-  				}
-
-  			}
-
-  		}			
-
-  	} catch (IOException | InterruptedException | ExecutionException | TimeoutException ex) {
-
-  		ex.printStackTrace();
-
-  	}
+          InetSocketAddress hostAddress = new InetSocketAddress("localhost", 5000);
+          serverChannel.bind(hostAddress); // bind 한다.
+          System.out.println("Waiting for client to connect...");
+          // Future을 리턴하는데, 이는 대기하지 않고 바로 다음을 실행한다
+          Future acceptResult = serverChannel.accept();
+          System.out.println("Waiting Accept...");
+          // 하지만 여기서 .get()을 호출했으므로 여기서 대기하게 된다.
+          try (AsynchronousSocketChannel clientChannel = (AsynchronousSocketChannel)acceptResult.get())
+          {
+              System.out.println("Messages from cilent: ");
+              // clientChanel이 null이 아니거나 열리지 않았을 때 1번 참고
+              while ((clientChannel != null) && (clientChannel.isOpen())) {
+                  ByteBuffer buffer = ByteBuffer.allocate(32);
+                  // AsynchronousServerSocketChannl의 거의 모든 소켓 메소드는 Future로 반환한다.
+                  Future result = clientChannel.read(buffer);
+                  // Timeout 10초 설정 2번 참고
+                  result.get(10, TimeUnit.SECONDS);
+                  // Position을 초기화 시킨다. 3번 참고
+                  buffer.flip();
+                  // 역시나 3번 참고
+                  String message = new String(buffer.array()).trim();
+                  System.out.println(message);
+                  if (message.equals("quit")) {
+                      break;
+                  }
+              }
+          }            
+      } catch (IOException | InterruptedException | ExecutionException | TimeoutException ex) {
+          ex.printStackTrace();
+      }
   }
   ```
 
@@ -519,62 +498,34 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
   ```java
   public static void main(String[] args) {
       // client 생성
-  	try (AsynchronousSocketChannel client = AsynchronousSocketChannel.open()) {
-
-  		InetSocketAddress hostAddress = new InetSocketAddress("localhost", 5000);
-  		// 서버에 연결 (Future 반환)
-
-  		Future future = client.connect(hostAddress);
-  		// 여기서 연결을 기다린다.
-
-  		future.get();
-
-  		System.out.println("Client is started: " + client.isOpen());
-
-  		System.out.println("Sending message to server: ");
-
-  		Scanner scanner = new Scanner(System.in);
-
-  		String message;
-
-  		while(true) {
-
-  			System.out.print("> ");
-
-  			message = scanner.nextLine();
-
-  			// warp 메소드는 위에 Buffer 메소드 설명에 있다. message의 바이트로 버퍼 생성
-  			ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
-
-  			// write한다. (Future) 반환
-  			Future result = client.write(buffer);
-  			// 대기. 역시나 3방법 전부 가능
-
-  			while (!result.isDone()) {
-
-  			}
-
-  			if (message.equalsIgnoreCase("quit")) {
-
-  				scanner.close();
-
-  				break;
-
-  			}
-
-  		}
-
-  	} catch (IOException | InterruptedException | ExecutionException ex) {
-
-  		ex.printStackTrace();
-
-  	}
-
+      try (AsynchronousSocketChannel client = AsynchronousSocketChannel.open()) {
+          InetSocketAddress hostAddress = new InetSocketAddress("localhost", 5000);
+          // 서버에 연결 (Future 반환)
+          Future future = client.connect(hostAddress);
+          // 여기서 연결을 기다린다.
+          future.get();
+          System.out.println("Client is started: " + client.isOpen());
+          System.out.println("Sending message to server: ");
+          Scanner scanner = new Scanner(System.in);
+          String message;
+          while(true) {
+              System.out.print("> ");
+              message = scanner.nextLine();
+              // warp 메소드는 위에 Buffer 메소드 설명에 있다. message의 바이트로 버퍼 생성
+              ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
+              // write한다. (Future) 반환
+              Future result = client.write(buffer);
+              // 대기. 역시나 3방법 전부 가능
+              while (!result.isDone()) {
+              }
+  
+              if (message.equalsIgnoreCase("quit")) {
+                  scanner.close();
+                  break;
+              }
+          }
+      } catch (IOException | InterruptedException | ExecutionException ex) {
+          ex.printStackTrace();
+      }
   }
   ```
-
-
-
-
-
-
