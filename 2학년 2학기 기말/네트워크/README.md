@@ -107,6 +107,8 @@
 
   * `put()` : 데이터를 추가한다. `array`도 되고 `byte` 하나도 된다. `position`을 추가된 값 뒤로 변경한다.
 
+  * `warp()` : 입력된 배열을 사용하여 버퍼를 생성한다. 입력에 사용된 배열이 변경되면 wrap를 사용해서 생성한 `Buffer`도 변경된다.
+
   * `filp()` : `position`을 처음으로 옮긴다.
 
   * `hasRemaining()` : 아직 버퍼에 남은 데이터가 있는지 여부 (Boolean)
@@ -389,7 +391,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
 
 비동기 통신은 요청을 하고 그 요청이 완료될 때까지 대기하지 않고 다른 작업을 진항해는 것이다.
 
-이를 **논블로킹(non-blocking)**이라고 부른다.
+이를 **논블로킹**(non-blocking)이라고 부른다.
 
 * `Future` 인터페이스 : 보류 결과를 나타내는 인터페이스인데, 실행 중이고 블록 중이 아닌  실행 상황을 저장한다.
 
@@ -397,7 +399,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
 
   > javascript를 어느 정도 아는 사람은 Promise 개념과 같다라고 알면 된다.
 
-  Future은 즉시 리턴이 되며 아래 방법들로 값을 가지고 올 수 있다.
+  Future은 즉시 리턴이 되며 아래 방법으로 값을 가지고 올 수 있다. (밑에 방법이 더 있다.)
 
   ```java
   Future<Integer> future = sometask;
@@ -412,6 +414,167 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
   결과 : 4 (그냥 값)
   ```
 
-  
+  이렇게 나오는데, 일단 중요 메소드부터 살펴보자
+
+  * `future.get()` : 메소드에서 값을 리턴할 때까지 대기(블록킹)한다. 그래고 값을 리턴한다.
+
+    * `future.get(long timeout, TimeUnit unit)` : 대기하지만 설정해놓은 시간이 지나면 `TimeoutException`이 발생한다. 
+
+  * `future.isDone()` : 메소드에서 값이 리턴됐으면 `true`반환, 아니면 `false`반환
+
+    그래서 보통 값을 불러오는 방법이 3가지가 있다.
+
+    ```java
+    // 1
+    int result = future.get();
+    // 2
+    while (!future.isDone());
+    int result = future.get(); // 값을 리턴할 필요가 없으면 안 쓰면 된다.
+    // 3
+    try {
+        int result = future.get(10, TimeUnit.SECONDS);
+    } catch (TimeoutException ex) {
+        System.out.println("타임아웃");
+    }
+    ```
+
+* 그러면 비동기 서버와 클라이언트를 보자. (TCP다)
+
+  TCP와 비슷한 부분도 꽤 많다. 
+
+  **서버**
+
+  ```java
+  public static void main(String[] args) {
+      // 서버를 연다 (이름이 드럽게 길다)
+      try (AsynchronousServerSocketChannel serverChannel = AsynchronousServerSocketChannel.open()) {
+          // 연결할 서버 IP
+  		InetSocketAddress hostAddress = new InetSocketAddress("localhost", 5000);
+
+  		serverChannel.bind(hostAddress); // bind 한다.
+
+  		System.out.println("Waiting for client to connect...");
+
+  		// Future을 리턴하는데, 이는 대기하지 않고 바로 다음을 실행한다
+  		Future acceptResult = serverChannel.accept();
+
+  		System.out.println("Waiting Accept...");
+  		
+  		// 하지만 여기서 .get()을 호출했으므로 여기서 대기하게 된다.
+  		try (AsynchronousSocketChannel clientChannel = (AsynchronousSocketChannel)acceptResult.get())
+
+  		{
+  			System.out.println("Messages from cilent: ");
+  			// clientChanel이 null이 아니거나 열리지 않았을 때 1번 참고
+
+  			while ((clientChannel != null) && (clientChannel.isOpen())) {
+
+  				ByteBuffer buffer = ByteBuffer.allocate(32);
+  				// AsynchronousServerSocketChannl의 거의 모든 소켓 메소드는 Future로 반환한다.
+
+  				Future result = clientChannel.read(buffer);
+
+  				
+
+  				// Timeout 10초 설정 2번 참고
+
+  				result.get(10, TimeUnit.SECONDS);
+
+  				// Position을 초기화 시킨다. 3번 참고
+  				buffer.flip();
+
+  				// 역시나 3번 참고
+  				String message = new String(buffer.array()).trim();
+
+  				System.out.println(message);
+
+  				if (message.equals("quit")) {
+
+  					break;
+
+  				}
+
+  			}
+
+  		}			
+
+  	} catch (IOException | InterruptedException | ExecutionException | TimeoutException ex) {
+
+  		ex.printStackTrace();
+
+  	}
+  }
+  ```
+
+  1. 여기서 while문을 쓰는 이유는 `acceptResult.get` 에서 `accept` 오류가 발생한 경우를 체크하기 위한 것이다.
+
+  2. 저 `result.get()`은 위에서 본 Future 값을 불러오는 방법 3가지가 전부 가능하다.
+
+  3. 여기서 `buffer.flip()` 이 의미가 없다. `buffer.array()`는 현재 Position을 무시하고 모든 값을 받아온다.
+
+     [여기](https://code.i-harness.com/ko-kr/q/a5d82) 참고
+
+  **클라이언트**
+
+  ```java
+  public static void main(String[] args) {
+      // client 생성
+  	try (AsynchronousSocketChannel client = AsynchronousSocketChannel.open()) {
+
+  		InetSocketAddress hostAddress = new InetSocketAddress("localhost", 5000);
+  		// 서버에 연결 (Future 반환)
+
+  		Future future = client.connect(hostAddress);
+  		// 여기서 연결을 기다린다.
+
+  		future.get();
+
+  		System.out.println("Client is started: " + client.isOpen());
+
+  		System.out.println("Sending message to server: ");
+
+  		Scanner scanner = new Scanner(System.in);
+
+  		String message;
+
+  		while(true) {
+
+  			System.out.print("> ");
+
+  			message = scanner.nextLine();
+
+  			// warp 메소드는 위에 Buffer 메소드 설명에 있다. message의 바이트로 버퍼 생성
+  			ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
+
+  			// write한다. (Future) 반환
+  			Future result = client.write(buffer);
+  			// 대기. 역시나 3방법 전부 가능
+
+  			while (!result.isDone()) {
+
+  			}
+
+  			if (message.equalsIgnoreCase("quit")) {
+
+  				scanner.close();
+
+  				break;
+
+  			}
+
+  		}
+
+  	} catch (IOException | InterruptedException | ExecutionException ex) {
+
+  		ex.printStackTrace();
+
+  	}
+
+  }
+  ```
+
+
+
+
 
 
