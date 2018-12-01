@@ -10,8 +10,6 @@
 
 - 쌤이 준 종이.
 
-
-
 ### [수행평가 나오는 4가지](test.md)
 
 ### 학습지 무조건 보세요. 이건 참고용입니다.
@@ -112,8 +110,6 @@
 
   소켓 프로그래밍에서는 `ServerSocketChannel`, `SocketChannel`을 이용하여 소켓에 `ByteBuffer`를 전송시킨다.
 
-
-
 ## 클라이언트 / 서버
 
 1. IP 주소와 함께 머신에 할당
@@ -133,8 +129,6 @@
 * 데이터그램 소켓 : 서로 연결되어 있지 않은 상태로 데이터를 주고 받는 형태로 서로 연결을 하거나 해제 과정이 없어 빠르기 때문에 **UDP**프로토콜에서 사용한다.
 
 * 로우 소켓 : 사용자가 직접 패킷의 헤더등을 설정하여 조작하는 소켓이다. 신규 프로토콜을 설계할 때 유용하게 쓰임.
-
-
 
 ## TCP와 UDP의 차이점
 
@@ -166,8 +160,6 @@
 
 * `TCP_NODELAY` : Nagle 알고리즘을 사용하지 않는다.
 
-
-
 ## HTTP 응답 상태 코드
 
 * 1xx - 정보 메시지를 나타낸다.
@@ -179,8 +171,6 @@
 * 4xx - 클라이언트 오류를 나타낸다.
 
 * 5xx - 서버 오류를 나타낸다.
-
-
 
 ## URI, URL, URN
 
@@ -200,8 +190,6 @@
   > 
   > URN : `urn:isbn:41321234` - 마호돌 쌤의 고유 id 41321234로 접근
 
-
-
 ## IP 주소 범위
 
 포함관계 - Global ( Site-local ( Link-local ) ) 
@@ -214,14 +202,272 @@
 
 * Global : 인터넷에서 주소를 고유하게 사용한다. (모든 곳에서 연결이 되는 것)
 
+## BufferedReader 클래스
 
+`BufferedReader` 클래스는 문자 입력 스트림으로 부터 문자들을 읽어들이는데 사용하는 클래스이다.
+
+* 생성자
+
+  * `BufferedReader(Reader in)` : 입력 스트림에 대한 디폴트 크기의 내부 버퍼를 갖는 객체 생성
+
+  그러면 콘솔에서 입력받는 예시를 보여주겠다.
+
+  ```java
+  BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+  // 콘솔에서 입력받음
+  reader.readLine();
+  ```
+
+* 메소드
+
+  Scanner에서 사용하던 메소드와 거의 비슷하다
+
+  `readLine()` : 입력 스트림에서부터 한 줄을 읽어 온다.
+
+## PrintWriter 클래스
+
+`PrintWriter` 클래스는 기본 데이터 형이나 객체를 출력 스트림으로 전송합니다.
+
+* 생성자 (이거 말고 다른 것도 많지만 생략)
+
+  * `PrintWriter(OutputStream out, boolean autoFlush)` : 출력 스트림으로부터 PrintWriter을 생성합니다.
+
+    `autoFlush`는 flush기능을 사용하는 유무인데, flush에 대해 간략히 설명하자면 데이터를 쓰면 모아뒀다가 한번에 같이 전송하는 기능이다.
+
+* 메소드
+
+  일반적으로 System.out과 똑같이 사용하면 된다.
+
+  `println`, `printf`, `print` 등등..
 
 ## 코드 하나씩 해석해볼까?
 
 * `URLConnection`
 
   ```java
-  
+  public static void main(String[] args) {
+      try {
+          // url을 google.com 으로 생성한다. 
+          URL url = new URL("http://www.google.com");  
+          // url에 접속하기 위해 URLConnection을 생성한다.
+          URLConnection urlConnection = url.openConnection(); 
+          // InputStreamReader을 이용하여 데이터를 받아온다.
+          BufferedReader br = new BufferedReader(  
+                  new InputStreamReader(urlConnection.getInputStream())); 
+          String line; 
+          // reader로 부터 한 라인씩 읽어서 출력한다.
+          while ((line = br.readLine()) != null) {  
+              System.out.println(line); 
+          }
+      } catch (IOException ex) {  
+          ex.printStackTrace();  
+      }  
+  }
   ```
 
+* 에코 서버
 
+  ```java
+  public static void main(String[] args) {
+      System.out.println("Simple Echo Server");
+      // ServerSocket으로 TCP 서버를 연다 (포트 6000번으로 염) 
+      try (ServerSocket serverSocket = new ServerSocket(6000)) {  
+          System.out.println("Waiting for Connection...");  
+          // 클라이언트에 연결 요청이 들어올 때까지 대기하다가 수락한다
+          Socket clientSocket = serverSocket.accept();  
+          System.out.println("Connected to Client");
+          // 1번 참고
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));  
+              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {  
+              String inputLine;  
+              // 받은 데이터를 한줄식 받아서 출력한다.
+              while ((inputLine = br.readLine()) != null) {  
+                  System.out.println("Client request : " + inputLine);  
+                  out.println(inputLine);
+              }
+          }                   
+      } catch (IOException ex) {
+          ex.printStackTrace();
+      }
+      System.out.println("Simple Echo Server Terminating"); 
+  }
+  ```
+
+  1. 여기서 `try` 괄호 안에 코드를 넣었는데, 이는 `try{}` 중괄호 밖으로 벗어나면 자동으로 `*.close()`가 실행된다. 이를 **[try-with-resource](http://multifrontgarden.tistory.com/192)** 구문이라고 부르는데, 참고하자.
+
+     또한 구문 안에 2개의 메소드를 넣었는데 하나씩 보자.
+     * `BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));`
+
+       클라이언트로부터 오는 데이터 스트림을 `br`로 연결하는 것이다. (위에 BufferedReader설명 참고)
+
+     * `PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);`
+
+       클라이언트로 보내는 데이터 스트림을 `out`으로 설정하는 것이다. (위에 PrintWriter 설명 참고)
+
+* 멀티캐스트 서버
+
+  ```java
+  public static void main(String[] args) {
+      System.out.println("Multicast Time Client");
+      // 멀티캐스트 소켓을 만드는데, 여기선 receive를 하므로 포트를 미리 적어줘야 한다.  
+      try (MulticastSocket socket = new MulticastSocket(8888)) {
+          // 서버 URL을 설정한다. 1번 참고
+          InetAddress group = InetAddress.getByName("224.0.0.0");
+          // 멀티캐스트 그룹에 가입한다.
+          socket.joinGroup(group);  
+          System.out.println("Multicast Group Joined");  
+          byte[] buffer = new byte[256];  
+          // receive할 데이터그램 패킷을 만드는데, UDP와 같다. (멀티캐스트도 UDP니깐 뭐)
+          DatagramPacket packet = new DatagramPacket(buffer, buffer.length); 
+          for (int i = 0; i < 5; i++) {  
+              socket.receive(packet);  
+              String received = new String(packet.getData());  
+              // 공백 제거 출력
+              System.out.println(received.trim()); 
+          } 
+      } catch (IOException ex) {
+          ex.printStackTrace();
+      }
+  }
+  ```
+
+  1. 저기 있는 224.0.0.0은 IPv4의 D클래스 주소(`224.0.0.0~239.255.255.255`)이다. 이 값만 멀티캐스트가 된다
+
+* IP주소 타입테스트
+
+  ```java
+  public static void testingForTheIPAddressType() {
+      try {
+          // InetAddress를 HostName을 통해 생성하였다. Inet4Address혹은 Inet6Address가 담긴다.
+          InetAddress address = InetAddress.getByName("www.packtpub.com");
+          // 주소를 byte배열로 리턴한다. 1번 참고
+          byte buffer[] = address.getAddress();
+  
+          // IPv4와 IPv6를 확인하는 방법은 두 가지가 있다.
+          // 첫 번째 방법
+          // IPv4일 때는 buffer의 크기는 4일 것이다.
+          if (buffer.length <= 4) {
+              System.out.println("IPv4 Address");
+          } else {
+              System.out.println("IPv6 Address");
+          }
+  
+          // 두 번째 방법
+          // address가 Inet4Address의 인스턴스일 때. 2번 참고
+          if (address instanceof Inet4Address) {
+              System.out.println("IPv4 Address");
+          } else {
+              System.out.println("VPv6 Address");
+          }
+      } catch (UnknownHostException ex) {
+          ex.printStackTrace();
+      }
+  }
+  ```
+
+  1. `getAddress()`는 `byte[]` 을 반환하는데 IPv4는 `*.*.*.*`형태니까 `byte[4]`를 리턴할 것이고 IPv6는 `*:*:*:*:*:*` 형태니까 `byte[6]`을 리턴할 것이다. 즉 아래서 `byte`배열의 length로 ip주소 형태를 알 수 있다.
+
+  2. `A instanceof B`키워드는 A변수가 B타입으로 형변환이 가능한가를 묻는 것이다. (bool로 반환)
+
+     참고로 `InetAddress`는 `Inet4Address`와 `Inet6Address` 의 부모 클래스이다. 즉 둘 다 담을 수 있다.
+
+* 채널을 이용한 타임서버
+
+  여기서는 `ServerSocket` 이 아닌 `ServerSocketChannel`을 이용한다. 채널을 이용하니 `Buffer`도 사용해야 한다.
+
+  ```java
+  public static void main(String[] args) {
+      System.out.println("Time Server Started");
+      try {
+          // 서버 소켓 채널을 생성한다.
+          ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+          // 서버 소켓을 5000번 포트로 연다.
+          serverSocketChannel.socket().bind(new InetSocketAddress(5000));
+          while (true) {
+              System.out.println("Waiting for request...");
+              // 연결을 수락한다.
+              SocketChannel socketChannel = serverSocketChannel.accept();
+              if (socketChannel != null) {
+                  // 현재 시간을 얻는다.
+                  String dateAndTimeMessage = "Date : " + new Date(System.currentTimeMillis());
+                  // ByteBuffer를 64byte 할당
+                  ByteBuffer buf = ByteBuffer.allocate(64);
+                  // 데이터를 넣는다.
+                  buf.put(dateAndTimeMessage.getBytes());
+                  // position 초기화
+                  buf.flip();
+                  // 클라이언트로 전송을 한다.
+                  while (buf.hasRemaining()) {
+                      socketChannel.write(buf);
+                  }
+                  System.out.println("Sent : " + dateAndTimeMessage);
+              }
+          }
+      } catch (IOException ex) {
+          ex.printStackTrace();
+      }
+  }
+  ```
+
+* HelperMethod 클래스
+
+  HelperMethod는 가변 길이의 데이터를 전송, 받는 메소드이다.
+
+  ```java
+  public class HelperMethods {
+      // 가변 길이의 문자를 보내는 함수
+      public static void sendMessage(SocketChannel socketChannel, String message) {
+          try {
+              // Buffer에 현재 문자열의 길이보다 1더 크게 할당한다. 
+              ByteBuffer buffer = ByteBuffer.allocate(message.length() + 1);
+              // 버퍼에 문자열을 넣는다.
+              buffer.put(message.getBytes());
+              // 문자열의 끝을 나타내는 0 (\0)을 넣는다.
+              buffer.put((byte) 0x00);
+              // 버퍼 Position 초기화
+              buffer.flip();
+              // socketChannel로 전송(send)함.
+              while (buffer.hasRemaining()) {
+                  socketChannel.write(buffer);
+              }
+              System.out.println("Sent: " + message);
+          } catch (IOException ex) {
+              ex.printStackTrace();
+          }
+      }
+      // 가변 길이의 문자를 받는 함수
+      public static String receiveMessage(SocketChannel socketChannel) {
+          try {
+              // byteBuffer을 16byte 할당한다.
+              ByteBuffer byteBuffer = ByteBuffer.allocate(16);
+              String message = "";
+              // 16바이트씩 socketChannel로부터 읽는다
+              while (socketChannel.read(byteBuffer) > 0) {
+                  char byteRead = 0x00;
+                  // Position 초기화
+                  byteBuffer.flip();
+                  // byteBuffer의 Position이 limit가 안될 때까지
+                  while (byteBuffer.hasRemaining()) {
+                      // 한 byte를 읽는다
+                      byteRead = (char) byteBuffer.get();
+                      // 그 바이트가 마지막 바이트 (\0)일 경우에
+                      if (byteRead == 0x00) {
+                          // 그만 읽음
+                          break;
+                      }
+                  }
+                  // while문이 2개로 감싸져 있기 때문에 여기서도 break 해줘야 한다.
+                  if (byteRead == 0x00) {
+                      break;
+                  }
+                  // 바이트 버퍼 초기화
+                  byteBuffer.clear();
+              }
+              return message;
+          } catch (IOException ex) {
+              ex.printStackTrace();
+          }
+          return "";
+      }
+  }
+  ```
