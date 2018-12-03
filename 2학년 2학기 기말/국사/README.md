@@ -141,7 +141,7 @@
 
 광해군의 중립외교 $ \rightarrow $ 인조의 친명배금 정책 $ \rightarrow $ 정묘호란 $ \rightarrow $ 형제관계
 
-강화이후에도 같은 태도 $ \rightarrow $ 병자호란 $\rightarrow $ 삼전도의 굴욕으로 군신관계
+강화이후에도 같은 태도 $ \rightarrow $ 병자호란 $\rightarrow$ 삼전도의 굴욕으로 군신관계
 
 #### 123 붕당 정치의 전개
 
