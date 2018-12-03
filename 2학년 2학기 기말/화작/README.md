@@ -1,4 +1,4 @@
-# 화작정리 - 배수한
+# 화작정리 - [배수한](https://github.com/SoohanBae)
 ※ 한컴파일도 같이 올렸습니다. - [드리이브 다운로드](https://drive.google.com/file/d/1vQppkvcU6OZDEOjfUdFwWp07CDFOOzIU/view?usp=sharing)  
 ※ 상희가 정리한 [README.md](./README2.md)
 

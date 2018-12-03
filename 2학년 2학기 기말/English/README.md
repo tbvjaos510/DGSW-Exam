@@ -35,3 +35,7 @@
 4. [읽기자료 4](https://quizlet.com/343229868/읽기-4-flash-cards/)
 5. [읽기자료 5](https://quizlet.com/343231306/읽기-5-flash-cards/)
 6. [읽기자료 6](https://quizlet.com/343232075/읽기-6-flash-cards/)
+
+## 본문 단어들 (Quizlet) [임준혁](https://github.com/gurdlwl)
+1. [3단원 단어 모음](https://quizlet.com/quizlette1025258/folders/2-2-3/)
+2. [6단원 단어 모음](https://quizlet.com/quizlette1025258/folders/2-2-6/)
