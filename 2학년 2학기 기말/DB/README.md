@@ -16,6 +16,8 @@
 
 3. [회원가입 PPT](./회원가입PPT.md)
 
+4. [교과서 연습문제](./연습문제.md)
+
 ## 시험 정리
 
 ## 6단원. 데이터모델링
@@ -406,7 +408,7 @@ NF는 Normal Form의 약자이다.
 
    이를 해결하기 위해 **BCNF**라는 정규형을 사용한다.
 
-4. **BCNF**(Boyce-Codd Normal Form): $X\rightarrow Y$가 성립될 때 모든 결정자 $X$가 후보키일 때
+4. **BCNF**(Boyce-Codd Normal Form): 제 3정규형에서 $X\rightarrow Y$가 성립될 때 모든 결정자 $X$가 후보키일 때
 
    > 결정자란? 각 X값에 대해 반드시 한개의 Y가 대응할 때 X는 **결정자** 이고 Y는 **종속자**이다.
 
