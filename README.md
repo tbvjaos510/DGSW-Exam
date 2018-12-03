@@ -36,7 +36,7 @@
 
 - ### 2일차
 
-  - [ ] 한국사
+  - [x] [한국사](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EA%B5%AD%EC%82%AC)
 
   - [x] [C#](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/CSharp)
 
