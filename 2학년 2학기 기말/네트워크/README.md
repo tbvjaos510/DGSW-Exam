@@ -144,6 +144,26 @@
 | 가중치    | 더 많은 지원이 요청되는 중량 가중치 | 지원이 덜 요청되는 경량 가중치 |
 | 프로토콜   | HTTP, SMTP, FTP 등    | 스트리밍하는 DNS, VOIP  |
 
+## UDP 특징 (p198)
+
+### UDP를 사용하는 프로토콜들
+
+* RTSP(Real Time Streaming Protocal) : 미디어 스트리밍을 제어하기 위해 사용.
+
+* RIP(Routing Information Protocal) : 패킷을 전송하는 데 전송되는 경로를 결정.
+
+* DNS(Domain Name System) : 인터넷 도메인 이름을 검색하고, 그 IP 주소를 반환.
+
+* NTP(Network Time Protocal) : 인터넷으로 시간을 동기화한다.
+
+### UDP 패킷의 크기
+
+UDP패킷은 고정된 크기를 가지며 최대 **65535**바이트 까지 가능하다. 그러나 각 패킷은 IP 헤더를 위해 최소 **20**바이트로 사용하고, UDP 헤더는 최소 **8**바이트로 사용되어서, 실제로는 **65507**바이트(65535-20-8 = 65507)로 제한한다. 
+
+> 교과서에는 65353 바이트라 적혀있는데, 오타다. 실제로 65535 바이트다 - [참고 자료](https://stackoverflow.com/a/1098940)
+
+
+
 ## 소켓 옵션 제어
 
 ### SocketChannel
@@ -452,7 +472,7 @@
                       byteRead = (char) byteBuffer.get();
                       // 그 바이트가 마지막 바이트 (\0)일 경우에
                       if (byteRead == 0x00) {
-                          // 그만 읽음
+                          // 그만 읽음
                           break;
                       }
                   }
