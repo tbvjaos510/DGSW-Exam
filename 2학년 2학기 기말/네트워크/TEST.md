@@ -255,7 +255,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
               // 즉 문자열의 0부터 packet의 길이만큼 패킷의 데이터를 가지고 온다는 것이다. 1번 참고
               String message = new String(packet.getData(), 0, packet.getLength());
               System.out.println("Message from: " + packet.getAddress()
-                      + " Message: ["+ message + "]");
+                      + " Message: [" + message + "]");
           }
   
       } catch (IOException ex) {
@@ -268,7 +268,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
 
 ## 비동기 소켓
 
-비동기 통신은 요청을 하고 그 요청이 완료될 때까지 대기하지 않고 다른 작업을 진항해는 것이다.
+비동기 통신은 요청을 하고 그 요청이 완료될 때까지 대기하지 않고 다른 작업을 진행하는 것이다.
 
 이를 **논블로킹**(non-blocking)이라고 부른다.
 
