@@ -376,9 +376,11 @@ var account = {
    gradient.addColorStop("0.5", "blue"); // 중간 색 설정
    gradient.addColorStop("1.0", "red"); // 끝 색 설정
    context.strokeStyle = gradient; // 색을 그라데이션으로 정함
-   context.lineWidth = 5; // 선 굵기를 5로 설
+   context.lineWidth = 5; // 선 굵기를 5로 설정
    context.strokeRect(10, 200, 170, 100); // 사각형을 그린다.
    ```
+
+   여기서 `strokeRect`메소드는 `beginPath()`와 `closePath()`를 쓰지 않았는데, `strokePath()`와 `fillRect()`등 바로 그려주는 메소드도 있다.
 
 ### 핑퐁 만들기
 
