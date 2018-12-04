@@ -152,7 +152,7 @@
 기본 이벤트를 막는다.
 
 ```html
-<form action="/hello" method="get" id="loginForm"">
+<form action="/hello" method="get" id="loginForm">
     <input type="text" name="id">
     <input type="submit" value="로그인">
 </form>
