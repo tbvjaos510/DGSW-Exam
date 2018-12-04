@@ -30,7 +30,7 @@
 
   ```php
   echo "hello"; // (O)
-  print "hello"; // (X)
+  print "hello"; // (O)
   
   $my_value == 4 ? print "true" : print "false"; // (O) print는 인자값으로 사용이 가능
   $my_value == 4 ? echo "true" : echo "false"; // (X) echo는 인자값으로 사용이 불가능
