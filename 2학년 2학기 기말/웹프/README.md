@@ -119,7 +119,7 @@ console.log(test.num); // 5
     console.log(numbers); // [1, 2, 3]
     ```
 
-    **※주의** concat을 사용하면 리턴값이 합친 배열이고 기본 배열은 변환이 안된다.
+    **※주의** concat을 사용하면 리턴값이 합친 배열이고 기존 배열은 변환이 안된다.
 
   * `join(separator)` : 배열의 모든 요소를 하나의 문자열로 연결한 문자열로 반환.
 
@@ -129,10 +129,12 @@ console.log(test.num); // 5
     ["a", "b", "c", "d"].join('##'); // a##b##c##d
     ```
 
-  * `reverse()` : 배열을 뒤집음
+  * `reverse()` : 배열을 뒤집음 (기존 배열도 바뀐다)
 
     ```javascript
-    [1, 2, 3, 4].reverse(); // [4, 3, 2, 1]
+    var a = [1, 2, 3, 4];
+    a.reverse(); // [4, 3, 2, 1]
+    a; // [4, 3, 2, 1]
     ```
 
   * `slice(start [, end])` : 배열을 A에서 B까지 반환. B가 없으면 A부터 끝까지 반환.
