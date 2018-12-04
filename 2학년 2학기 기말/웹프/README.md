@@ -263,7 +263,7 @@ console.log(test.num); // 5
 
   * `sqrt(X)` : 루트 X 반환
 
-* 0~100까지의 랜덤 값 반환
+* 0~99까지의 랜덤 값 반환
 
   ```javascript
   var a = Math.random() * 100;
