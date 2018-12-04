@@ -283,7 +283,7 @@ account.add = function () {
 // 위와 아래 코드는 동일하게 작동한다. 대신 밑이 간지난다.
 var account = {
     owner: "박주희",
-    code: 300;
+    code: 300,
     add: () => {
         ...
     } // 익명함수. C#이랑 거의 같다. 참고만 하자
