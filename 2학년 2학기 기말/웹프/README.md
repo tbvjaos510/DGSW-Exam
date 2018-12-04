@@ -376,7 +376,7 @@ var account = {
    gradient.addColorStop("0.5", "blue"); // 중간 색 설정
    gradient.addColorStop("1.0", "red"); // 끝 색 설정
    context.strokeStyle = gradient; // 색을 그라데이션으로 정함
-   context.lineWidth = 5;
+   context.lineWidth = 5; // 선 굵기를 5로 설
    context.strokeRect(10, 200, 170, 100); // 사각형을 그린다.
    ```
 
@@ -384,7 +384,7 @@ var account = {
 
 중요 메소드만 몇 개 소개하겠다.
 
-* `context.fillStyle(color)` : 그리는 색을 정한다.
+* `context.fillStyle = color` : 그리는 색을 정한다.
 
 * `context.fillRect(x, y, width, height)` :  채운 사각형을 그린다.
 
