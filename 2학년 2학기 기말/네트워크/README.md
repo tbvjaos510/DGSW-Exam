@@ -22,7 +22,7 @@
 
 * `String getHostNamae()` : 호스트의 이름을 가지고 온다. 만약 IP주소로 생성된 경우에는 `getCanonicalHostName()`를 호출해 도메인 서버에서 찾는데, 못찾으면 IP주소의 텍스트로 반환한다고 한다.
 
-  > 다음 주소를 번역하였다.  - https://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html#getHostName()
+  > 다음 주소를 번역하였다.  - https://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html#getHostName()
 
 * `String getCanonicalHostName()` : 도메인 서버(FQDN)에서 무조건 최상위 도메인을 찾는다. 실패시 IP주소 텍스트 반환
 
@@ -101,10 +101,23 @@
   * `wrap()` : 입력된 배열을 사용하여 버퍼를 생성한다. 입력에 사용된 배열이 변경되면 wrap를 사용해서 생성한 `Buffer`도 변경된다.
 
   * `flip()` : `limit`을 현재 `position`으로 정한 뒤, `positon`을 시작(0)으로 옮긴다.
+    > ```java
+    >public final Buffer flip() {
+    >    limit = position;
+    >    position = 0;
+    >    mark = -1;
+    >    return this;
+    >}
+    > ```
 
   * `hasRemaining()` : 아직 버퍼에 남은 데이터가 있는지 여부 (Boolean)
 
-    >  `position` 과 `limit` 가 같으면 `false`, 아니면 `true` 반환  
+    > ```java
+    >public final boolean hasRemaining() {
+    >    //position 과 limit 가 같으면 false, 아니면 `true` 반환 
+    >    return position < limit;
+    >}
+    > ```
 
 * **채널** : `Buffer`에 있는 내용을 다른 어디론가 보내거나 다른 어딘가의 내용을 `Buffer`로 읽어들이기 위해 사용된다. 
 
@@ -144,7 +157,7 @@
 | 가중치    | 더 많은 지원이 요청되는 중량 가중치 | 지원이 덜 요청되는 경량 가중치 |
 | 프로토콜   | HTTP, SMTP, FTP 등    | 스트리밍하는 DNS, VOIP  |
 
-## UDP 특징 (p198)
+## UDP 특징 (P. 198)
 
 ### UDP를 사용하는 프로토콜들
 
@@ -160,7 +173,7 @@
 
 UDP패킷은 고정된 크기를 가지며 최대 **65535**바이트 까지 가능하다. 그러나 각 패킷은 IP 헤더를 위해 최소 **20**바이트로 사용하고, UDP 헤더는 최소 **8**바이트로 사용되어서, 실제로는 **65507**바이트(65535-20-8 = 65507)로 제한한다. 
 
-> 교과서에는 65353 바이트라 적혀있는데, 오타다. 실제로 65535 바이트다 - [참고 자료](https://stackoverflow.com/a/1098940)
+> 교과서에는 65353 바이트라 적혀있는데, 오타다. 실제로 65535 바이트다 - [참고 자료 (stack**overflow**)](https://stackoverflow.com/a/1098940)
 
 ## 소켓 옵션 제어
 
@@ -256,7 +269,7 @@ UDP패킷은 고정된 크기를 가지며 최대 **65535**바이트 까지 가�
 
   일반적으로 System.out과 똑같이 사용하면 된다.
 
-  `println`, `printf`, `print` 등등..
+  `println()`, `printf()`, `print()` 등등..
 
 ## 코드 하나씩 해석해볼까?
 
@@ -385,7 +398,7 @@ UDP패킷은 고정된 크기를 가지며 최대 **65535**바이트 까지 가�
 
   1. `getAddress()`는 `byte[]` 을 반환하는데 IPv4는 `*.*.*.*`형태니까 `byte[4]`를 리턴할 것이고 IPv6는 `*:*:*:*:*:*` 형태니까 `byte[6]`을 리턴할 것이다. 즉 아래서 `byte`배열의 length로 ip주소 형태를 알 수 있다.
 
-  2. `A instanceof B`키워드는 A변수가 B타입으로 형변환이 가능한가를 묻는 것이다. (bool로 반환)
+  2. `A instanceof B`키워드는 A변수가 B타입으로 형변환이 가능한가를 묻는 것이다. (boolean로 반환)
 
      참고로 `InetAddress`는 `Inet4Address`와 `Inet6Address` 의 부모 클래스이다. 즉 둘 다 담을 수 있다.
 
