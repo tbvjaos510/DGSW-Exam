@@ -98,9 +98,9 @@
 
   * `put()` : 데이터를 추가한다. `array`도 되고 `byte` 하나도 된다. `position`을 추가된 값 뒤로 변경한다.
 
-  * `warp()` : 입력된 배열을 사용하여 버퍼를 생성한다. 입력에 사용된 배열이 변경되면 wrap를 사용해서 생성한 `Buffer`도 변경된다.
+  * `wrap()` : 입력된 배열을 사용하여 버퍼를 생성한다. 입력에 사용된 배열이 변경되면 wrap를 사용해서 생성한 `Buffer`도 변경된다.
 
-  * `filp()` : `limit`을 현재 `position`으로 정한 뒤, `positon`을 시작(0)으로 옮긴다.
+  * `flip()` : `limit`을 현재 `position`으로 정한 뒤, `positon`을 시작(0)으로 옮긴다.
 
   * `hasRemaining()` : 아직 버퍼에 남은 데이터가 있는지 여부 (Boolean)
 
