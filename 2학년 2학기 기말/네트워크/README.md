@@ -257,11 +257,11 @@ UDP패킷은 고정된 크기를 가지며 최대 **65535**바이트 까지 가�
 
 ## PrintWriter 클래스
 
-`PrintWriter` 클래스는 기본 데이터 형이나 객체를 출력 스트림으로 전송합니다.
+`PrintWriter` 클래스는 기본 데이터 형이나 객체를 출력 스트림으로 전송한다.
 
 * 생성자 (이거 말고 다른 것도 많지만 생략)
 
-  * `PrintWriter(OutputStream out, boolean autoFlush)` : 출력 스트림으로부터 PrintWriter을 생성합니다.
+  * `PrintWriter(OutputStream out, boolean autoFlush)` : 출력 스트림으로부터 PrintWriter을 생성한다.
 
     `autoFlush`는 flush기능을 사용하는 유무인데, flush에 대해 간략히 설명하자면 데이터를 쓰면 모아뒀다가 한번에 같이 전송하는 기능이다.
 
@@ -301,7 +301,7 @@ UDP패킷은 고정된 크기를 가지며 최대 **65535**바이트 까지 가�
   ```java
   public static void main(String[] args) {
       System.out.println("Simple Echo Server");
-      // ServerSocket으로 TCP 서버를 연다 (포트 6000번으로 염) 
+      // ServerSocket으로 TCP 서버를 연다 (포트 6000번으로 엶) 
       try (ServerSocket serverSocket = new ServerSocket(6000)) {  
           System.out.println("Waiting for Connection...");  
           // 클라이언트에 연결 요청이 들어올 때까지 대기하다가 수락한다
