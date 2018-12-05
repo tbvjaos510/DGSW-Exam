@@ -1,4 +1,4 @@
-# C\#
+# C\
 
 <p align="center">
       <a href="https://github.com/tbvjaos510/DGSW-Exam#2%EC%9D%BC%EC%B0%A8">
@@ -18,7 +18,7 @@
 
   * 373~376 - [Chapter 07 상속과 다형성](#chapter-07---상속과-다형성)
 
-  * 402 - [Chapter 08 클래스 심화](#chapter-08---클래스 심화)
+  * 402 - [Chapter 08 클래스 심화](#chapter-08---클래스-심화)
 
   * 444 - [Chapter 09 인터페이스](#chapter-09---인터페이스)
 
