@@ -12,21 +12,21 @@
 
 * 연습문제 위치
 
-  * 246~247 - [Chapter 05 클래스의 기본](#Chapter 05 - 클래스의 기본)
+  * 246~247 - [Chapter 05 클래스의 기본](#chapter-05---클래스의-기본)
 
-  * 312~314 - [Chapter 06 메서드](#Chapter 06 - 메서드)
+  * 312~314 - [Chapter 06 메서드](#chapter-06---메서드)
 
-  * 373~376 - [Chapter 07 상속과 다형성](#Chapter 07 - 상속과 다형성)
+  * 373~376 - [Chapter 07 상속과 다형성](#chapter-07---상속과-다형성)
 
-  * 402 - [Chapter 08 클래스 심화](#Chapter 08 - 클래스 심화)
+  * 402 - [Chapter 08 클래스 심화](#chapter-08---클래스 심화)
 
-  * 444 - [Chapter 09 인터페이스](#Chapter 09 - 인터페이스)
+  * 444 - [Chapter 09 인터페이스](#chapter-09---인터페이스)
 
-  * 476 - [Chapter 10 예외 처리 ](#Chapter 10 - 예외 처리)
+  * 476 - [Chapter 10 예외 처리 ](#chapter-10---예외-처리)
 
-  * 506 - [Chapter 11 델리게이트와 람다](#Chapter 11 - 델리게이터와 람다) 
+  * 506 - [Chapter 11 델리게이트와 람다](#chapter-11---델리게이터와-람다) 
 
-  * 527~529 - [Chapter 12 Linq](#Chapter 12 - Linq)
+  * 527~529 - [Chapter 12 Linq](#chapter-12---Linq)
 
   * ~~프로젝트~~ - 안나온다
 
