@@ -21,14 +21,4 @@
 
 **tropical rainforest**: 열대우림
 
-**dome**: 돔  ![이미지](https://www.google.co.kr/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjyit7b_u7eAhULV7wKHVcXAHIQjRx6BAgBEAU&url=http%3A%2F%2Faraya.tistory.com%2F180&psig=AOvVaw0EviHfonDePd0pujM2mxQo&ust=1543216262944329) 참조 
-
-
-
-
-
-
-
-
-
-
+**dome**: 돔 <img src="https://t1.daumcdn.net/cfile/tistory/182D604250286CFD21" title="돔 이미지" alt="이미지" width="200" heigth="150"/> 참조 [[출처](http://araya.tistory.com/180)]
