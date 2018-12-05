@@ -32,7 +32,7 @@
 
   - [x] [네트워크 프로그래밍](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC)
 
-  - [x] [웹 프로그래밍 기초](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%9B%B9%ED%94%84)
+  - [x] [웹 프로그래밍 기초](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%9B%B9%ED%94%84), [리눅스](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EB%A6%AC%EB%88%85%EC%8A%88)
 
 - ### 2일차
 
