@@ -36,7 +36,7 @@
 
 - [국사](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EA%B5%AD%EC%82%AC)
 
-- [실시간 운영체제](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%8B%A4%EC%9A%B4)
+- [실시간 운영체제](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%8B%A4%EC%9A%B4) (임베디드)
 
 - [화법과 작문](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%ED%99%94%EC%9E%91)
 
@@ -49,7 +49,7 @@
 
 - [웹 프로그래밍 기초](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%9B%B9%ED%94%84)
 
-- [리눅스](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EB%A6%AC%EB%88%85%EC%8A%88)
+- [리눅스](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EB%A6%AC%EB%88%85%EC%8A%88) (임베디드)
 
 - [한국사](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EA%B5%AD%EC%82%AC)
 
