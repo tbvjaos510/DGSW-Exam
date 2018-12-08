@@ -25,7 +25,7 @@
 
 # 2018년
 
-## 2학년 1학기 (hwp)
+## 2학년 1학기 (hwp, pdf)
 - [DB](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/DB)
 
 - [JAVA](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/java)
@@ -41,7 +41,7 @@
 - [화법과 작문](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%ED%99%94%EC%9E%91)
 
 
-## 2학년 2학기 (markdown, hwp)
+## 2학년 2학기 (markdown, hwp, pdf)
 
 - [화법과 작문](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%ED%99%94%EC%9E%91)
 
