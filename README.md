@@ -17,7 +17,7 @@
 
 * 후배들이 나중에 이걸 보고 도움이 될 수 있기를 바라면서 올립니다.
 * 마크다운 프로그램은 [marktext](https://github.com/marktext/marktext) 을 사용합니다.
-* 2학년 2학기 문서 중 일부 문서들은 Latex를 사용합니다. 깃허브에서 볼려면 [크롬 익스텐션(MathJax Plugin for Github)](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima)를 설치해 주세요
+* 마크다운 문서 중 일부 문서들은 Latex를 사용합니다. 깃허브에서 볼려면 [크롬 익스텐션(MathJax Plugin for Github)](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima)를 설치해 주세요
 * 같이 만들고 싶으면 말하면 콜라보레이터 추가해드릴게요~
 * **볼때 별 하나씩만 달아줘요 ㅠㅠㅠㅠㅠㅠ**
 * 문서를 볼 때 오류나 오타가 보이면 직접 수정해 주세요 - [여기](CONTRIBUTE.md) 참고
