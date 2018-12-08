@@ -51,6 +51,8 @@
 
 - [리눅스](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EB%A6%AC%EB%88%85%EC%8A%88) (임베디드)
 
+- [코아텍스](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%BD%94%EC%95%84%ED%85%8D%EC%8A%A4) (임베디드)
+
 - [한국사](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EA%B5%AD%EC%82%AC)
 
 - [C#](https://github.com/tbvjaos510/DGSW-Exam/tree/master/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/CSharp)
