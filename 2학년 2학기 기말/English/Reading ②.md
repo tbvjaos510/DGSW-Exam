@@ -7,7 +7,7 @@
 
 #### 사람들이 에덴에 방문하면, 커다란 돔 모양의 온실 안을 걸어다닐 수 있다. 한 세트의 돔 내부는 에덴의 열대 우림이다.-- *돔 하나 내부는 하나의 열대우림  생태계라는 소리!* -- 나비, 벌레들, 그리고 다른 동물들은 돔 속에서 식물들과 살아간다. 그곳은 돔 없는 열린 공간이나 다름이 없다. 그곳에서는 영국, 호주, 아시아, 남아메리카의 식물들을 볼 수 있다.
 
-#### 에덴이 처음 지어질 때, Eden Trust는 매년 75만명의 사람들이 방문할 것으로 예상했다. 그러나 에덴이 개자한 2001년에, 거의 200만명에 달하는 사람이 방문했다!
+#### 에덴이 처음 지어질 때, Eden Trust는 매년 75만명의 사람들이 방문할 것으로 예상했다. 그러나 에덴이 개장한 2001년에, 거의 200만명에 달하는 사람이 방문했다!
 
 
 
@@ -21,14 +21,4 @@
 
 **tropical rainforest**: 열대우림
 
-**dome**: 돔  ![이미지](https://www.google.co.kr/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjyit7b_u7eAhULV7wKHVcXAHIQjRx6BAgBEAU&url=http%3A%2F%2Faraya.tistory.com%2F180&psig=AOvVaw0EviHfonDePd0pujM2mxQo&ust=1543216262944329) 참조 
-
-
-
-
-
-
-
-
-
-
+**dome**: 돔 <img src="https://t1.daumcdn.net/cfile/tistory/182D604250286CFD21" title="돔 이미지" alt="이미지" width="200" heigth="150"/> 참조 [[출처](http://araya.tistory.com/180)]
