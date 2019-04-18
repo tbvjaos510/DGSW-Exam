@@ -1,10 +1,10 @@
 ## TCP 소켓 사용
 
-* TCP 소켓의 단계
+- TCP 소켓의 단계
 
   ![socket](./img/socketlevel.jpg)
 
-* 소켓의 사용
+- 소켓의 사용
 
   서버에서는 `ServerSocketChannel`로 서버를 열고 클라이언트에서는 `SocketChannel`로 서버에 연결한다.
 
@@ -16,15 +16,15 @@
   public static void main(String[] args) {
       try {
           // 서버 소켓 생성
-          ServerSocketChannel serverSocketChannel = 
+          ServerSocketChannel serverSocketChannel =
                               ServerSocketChannel.open();
           // 5000번 포트를 사용 (bind)
-          serverSocketChannel.socket().bind(new InetSocketAddress(5000)); 
+          serverSocketChannel.socket().bind(new InetSocketAddress(5000));
           // 클라이언트 요청을 받아서 클라이언트 연결 정보를 담은 SocketChannel 반환
           SocketChannel socketChannel = serverSocketChannel.accept(); // 받을 때 까지 대기한다.
           System.out.println("클라이언트 연결됨!");
           // 보낼 데이터 생성
-          String message = "Hello World!";        
+          String message = "Hello World!";
           // 보낼 데이터를 담는 ByteBuffer 생성 및 할당
           ByteBuffer buffer = ByteBuffer.allocate(64); // 이 64가 capacity이다.
           // buffer에 데이터를 넣는다.
@@ -52,12 +52,12 @@
           System.out.println("서버에 연결하였습니다.");
           ByteBuffer byteBuffer = ByteBuffer.allocate(64);
           String message = "";
-          // 소켓 채널에서부터 값을 받아 byteBuffer에 저장한다. 
+          // 소켓 채널에서부터 값을 받아 byteBuffer에 저장한다.
           socketChannel.read(byteBuffer);
-          // 현재 byteBuffer의 position은 값이 들어가서 limit까지 찼을 것이다. 처음으로 옮긴다. 
+          // 현재 byteBuffer의 position은 값이 들어가서 limit까지 찼을 것이다. 처음으로 옮긴다.
           byteBuffer.flip();
           while (byteBuffer.hasRemaining()) {
-              // message에 byteBuffer로부터 받은 byte하나를 char형으로 변환해서 추가함 
+              // message에 byteBuffer로부터 받은 byte하나를 char형으로 변환해서 추가함
               message += (char) byteBuffer.get();
           } // 이를 byteBuffer에 값이 없을 때 까지 하나씩 전부 옮김
           System.out.println("서버로부터 받은 값 : " + message);
@@ -67,7 +67,7 @@
   }
   ```
 
-  1. 여기서 `try` 괄호 안에 코드를 넣었는데,  이는 `try{}` 중괄호 밖으로 벗어나면 자동으로 `socketChannel.close()`가 실행된다. 이를 **[try-with-resource](http://multifrontgarden.tistory.com/192)** 구문이라고 부르는데, 참고하자. 
+  1. 여기서 `try` 괄호 안에 코드를 넣었는데, 이는 `try{}` 중괄호 밖으로 벗어나면 자동으로 `socketChannel.close()`가 실행된다. 이를 **[try-with-resource](http://multifrontgarden.tistory.com/192)** 구문이라고 부르는데, 참고하자.
 
   저 위의 예제들이 tcp에서 서버와 클라이언트의 기본이다. 저것만 이해하면 나머지들도 쉽게 이해할 수 있다.
 
@@ -75,7 +75,7 @@
 
 UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하는데, `DatagramSocket`이란 클래스를 사용한다.
 
-* 서버
+- 서버
 
   서버의 단계는 전체적으로 3단계이다.
 
@@ -85,9 +85,9 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
 
   3. `datagramSocket.receive(datagramPacket)` 호출 : `receive`를 호출하면 받을 때 까지 대기한다.
 
-     > 저기서 datagramSocket과 datagramPacket은 인스턴스이다. 즉 new로 할당된 값 
+     > 저기서 datagramSocket과 datagramPacket은 인스턴스이다. 즉 new로 할당된 값
 
-* 클라이언트
+- 클라이언트
 
   클라이언트 단계도 3단계로 보면 된다.
 
@@ -115,7 +115,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
 
   예제 코드를 보자.
 
-* **서버**
+- **서버**
 
   ```java
   public static void main(String[] args) {
@@ -123,10 +123,10 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
       // UDP 서버 생성 (5000포트로 listen)
       try (DatagramSocket serverSocket = new DatagramSocket(5000)) {
           while (true) {
-              // 받을 데이터를 저장할 byte 생성 
+              // 받을 데이터를 저장할 byte 생성
               byte[] receiveMessage = new byte[1024];
               // 받을 데이터를 저장할 패킷 생성
-              DatagramPacket receivePacket = 
+              DatagramPacket receivePacket =
                              new DatagramPacket(receiveMessage, receiveMessage.length);
               // 클라이언트로 부터 수신대기. receivePacket에 클라이언트 데이터가 저장됨
               serverSocket.receive(receivePacket);
@@ -151,7 +151,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
   }
   ```
 
-* **클라이언트**
+- **클라이언트**
 
   ```java
   public static void main(String[] args) {
@@ -188,7 +188,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
   }
   ```
 
-  1. 여기서 보면 `clientSocket`은 포트를 설정하지 않았지만 서버로부터 `receive()`를 수행한다. 이게 가능한 이유가 서버에서 `getPort()`를 했을 때 값은 41032(다를 수 있다) 대충 이런 클라이언트 패킷에서 보낸 임시 포트가 나오는데, 이 임시 포트는 클라이언트에서 `DatagramSocket clientSocket = new DatagramSocket()` 할 때 자동으로 생성이 된다.그리고 `receive`를 호출하면 해당 임시 포트를 이용해  receive를 한다. - [참고 자료](https://stackoverflow.com/a/29337540)
+  1. 여기서 보면 `clientSocket`은 포트를 설정하지 않았지만 서버로부터 `receive()`를 수행한다. 이게 가능한 이유가 서버에서 `getPort()`를 했을 때 값은 41032(다를 수 있다) 대충 이런 클라이언트 패킷에서 보낸 임시 포트가 나오는데, 이 임시 포트는 클라이언트에서 `DatagramSocket clientSocket = new DatagramSocket()` 할 때 자동으로 생성이 된다.그리고 `receive`를 호출하면 해당 임시 포트를 이용해 receive를 한다. - [참고 자료](https://stackoverflow.com/a/29337540)
 
 ## UDP 멀티캐스팅
 
@@ -200,7 +200,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
 
 사실 멀티캐스트에는 서버, 클라이언트의 개념이 애매하다. 걍 모두가 방에 접속해서 send, receive하여서 데이터를 주고받는다. 여기서는 보내는 역할이 서버, 받는 역할이 클라이언트로 보는거 같다.
 
-* 서버
+- 서버
 
   ```java
   public static void main(String[] args) {
@@ -232,7 +232,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
   }
   ```
 
-* 클라이언트
+- 클라이언트
 
   ```java
   public static void main(String[] args) {
@@ -243,11 +243,11 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
           // 역시나 클라이언트도 방에 참여한다.
           InetAddress inetAddress = InetAddress.getByName("228.5.6.7");
           multicastSocket.joinGroup(inetAddress);
-  
+
           // 받을 패킷을 생성
           byte[] data = new byte[256];
           DatagramPacket packet = new DatagramPacket(data, data.length);
-  
+
           while(true) {
               // 멀티캐스트 서버에서 패킷을 수신한다.
               multicastSocket.receive(packet);
@@ -257,7 +257,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
               System.out.println("Message from: " + packet.getAddress()
                       + " Message: [" + message + "]");
           }
-  
+
       } catch (IOException ex) {
           ex.printStackTrace();
       }
@@ -272,7 +272,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
 
 이를 **논블로킹**(non-blocking)이라고 부른다.
 
-* `Future` 인터페이스 : 보류 결과를 나타내는 인터페이스인데, 실행 중이고 블록 중이 아닌  실행 상황을 저장한다.
+- `Future` 인터페이스 : 보류 결과를 나타내는 인터페이스인데, 실행 중이고 블록 중이 아닌 실행 상황을 저장한다.
 
   제네릭을 사용하는게 일반적인데 제네릭 안에는 반환하는 값을 넣는다, `Future`은 값을 반환하는데 몇 초가 걸리는 작업들에 대해 나타내기 때문이다. 하지만 소켓에서는 리턴 값이 필요없는 작업들이 있기 때문이 제네릭을 안쓰기도 한다.
 
@@ -295,11 +295,11 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
 
   이렇게 나오는데, 일단 중요 메소드부터 살펴보자
 
-  * `future.get()` : 메소드에서 값을 리턴할 때까지 대기(블록킹)한다. 그러고 값을 리턴한다.
+  - `future.get()` : 메소드에서 값을 리턴할 때까지 대기(블록킹)한다. 그러고 값을 리턴한다.
 
-    * `future.get(long timeout, TimeUnit unit)` : 대기하지만 설정해놓은 시간이 지나면 `TimeoutException`이 발생한다. 
+    - `future.get(long timeout, TimeUnit unit)` : 대기하지만 설정해놓은 시간이 지나면 `TimeoutException`이 발생한다.
 
-  * `future.isDone()` : 메소드에서 값이 리턴됐으면 `true`반환, 아니면 `false`반환
+  - `future.isDone()` : 메소드에서 값이 리턴됐으면 `true`반환, 아니면 `false`반환
 
     그래서 보통 값을 불러오는 방법이 3가지가 있다.
 
@@ -317,16 +317,16 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
     }
     ```
 
-* 그러면 비동기 서버와 클라이언트를 보자. (TCP다)
+- 그러면 비동기 서버와 클라이언트를 보자. (TCP다)
 
-  TCP와 비슷한 부분도 꽤 많다. 
+  TCP와 비슷한 부분도 꽤 많다.
 
   **서버**
 
   ```java
-  
+
   public static void main(String[] args) {
-  
+
       // 서버를 연다 (이름이 드럽게 길다)
       try (AsynchronousServerSocketChannel serverChannel = AsynchronousServerSocketChannel.open()) {
           // 연결할 서버 IP
@@ -356,7 +356,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
                       break;
                   }
               }
-          }            
+          }
       } catch (IOException | InterruptedException | ExecutionException | TimeoutException ex) {
           ex.printStackTrace();
       }
@@ -396,7 +396,7 @@ UDP 는 비연결성 프로토콜이다. 연결하지 않고 패킷을 전달하
               // 대기. 역시나 3방법 전부 가능
               while (!result.isDone()) {
               }
-  
+
               if (message.equalsIgnoreCase("quit")) {
                   scanner.close();
                   break;

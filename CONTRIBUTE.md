@@ -8,8 +8,6 @@
 
 ![contribute2](img/contribute2.PNG)
 
-
-
 ### 3. 수정을 한다
 
 ![contribute3](img/contribute3.PNG)
@@ -34,15 +32,11 @@ Preview change를 클릭하면 수정 사항을 볼 수 있다.
 
 파일 수정 사항을 추가하는 것이다.
 
-
-
 ### 6. Pull request 를 한다.
 
 ![contribute8](img/contribute7.PNG)
 
 > Create pull request 버튼을 클릭한다,
-
-
 
 ### 7. 한번더 Pull request를 클릭한다
 
@@ -53,8 +47,6 @@ Preview change를 클릭하면 수정 사항을 볼 수 있다.
 ### 8. 끝!
 
 ![contribute9](img/contribute9.PNG)
-
-
 
 ### 추후에 반영이 된다.
 
