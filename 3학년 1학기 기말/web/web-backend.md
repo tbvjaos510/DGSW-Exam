@@ -319,9 +319,9 @@ public class TestAOP {
 
 ### 2. @PointCut
 
-타켓 메소드를 설정합니다.
+타겟 메소드를 설정합니다.
 
-execution([리턴 타입][타갯이 되는 메소드][(인자 타입)]
+execution([리턴 타입][타겟이 되는 메소드][(인자 타입)]
 
 > ex)`"execution(* com.kr.hs.dgsw.board.BoardService.get*(..))"`
 >
