@@ -232,7 +232,7 @@ export default Counter;
 import React from "react";
 
 const Delta = props => {
-  // props는 아래에서 자세히 설명한다. 인자값이 한개일 때는 괄호가 생각이 가능하다.
+  // props는 아래에서 자세히 설명한다. 인자값이 한개일 때는 괄호가 생략이 가능하다.
   return (
     <div>
       <input value={props.data} onChange={props.handleChange} />
@@ -243,7 +243,7 @@ const Delta = props => {
 export default Delta;
 ```
 
-함수형 컴포넌트는 함수의 인자값으로 props가 날라오고 리턴값을 클래스에서 `render()`의 리턴값과 같이 한다.
+함수형 컴포넌트는 함수의 인자값으로 props가 날라오고 리턴값은 클래스의  `render()`의 리턴값과 같이 한다.
 
 사용하는 이유는 성능이 좋고 간단하게 구현할 수 있어서라고 한다.
 
