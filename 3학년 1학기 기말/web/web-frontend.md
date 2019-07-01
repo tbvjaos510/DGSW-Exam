@@ -228,6 +228,36 @@ export default Counter;
 
    **절대 this.state.value = ""** 을 쓰면 안된다.
 
+### React LifeCycle
+
+클래스형 컴포넌트에서 React가 제공하는 메소드들이 있다.
+
+```jsx
+class Board extends Component {
+  // 컴포넌트가 생성 될 때
+  constructor(props) {
+    super(props);
+
+    console.log("Board Component 생성 시작 props는 ", props);
+  }
+
+  // 생성자와 componentDidMount 사이에 실행되는 함수지만 현재 React에서 권장하지 않는다.
+  componentWillMount() {}
+
+  // 실제 DOM에 적용된 뒤에 실행됨
+  componentDidMount() {
+    // 데이터를 불러오는 작업을 함
+    axios.get...
+    this.props.store.fetchItem...
+  }
+
+  // 컴포넌트가 삭제되기 직전에 실행됨
+  componentWillUnmount() {
+    console.log("컴포넌트 삭제 됨");
+  }
+}
+```
+
 ### 함수형 컴포넌트
 
 ```jsx
