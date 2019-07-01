@@ -9,7 +9,7 @@
 #### HTML 코드
 
 ```html
-<!DDOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
