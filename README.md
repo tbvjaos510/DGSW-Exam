@@ -64,3 +64,5 @@
 ## 3학년 1학기
 
 - [웹 프로그래밍](https://github.com/tbvjaos510/DGSW-Exam/blob/master/3%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/web)
+
+- [성공적인 직업생활](https://github.com/tbvjaos510/DGSW-Exam/blob/master/3%ED%95%99%EB%85%84%201%ED%95%99%EA%B8%B0%20%EA%B8%B0%EB%A7%90/%EC%84%B1%EC%A7%81/README.pdf)
