@@ -1,6 +1,6 @@
 # 웹 프로그래밍 - Frontend
 
-중간고사 이후부터 정리
+중간고사 이후부터 정리 [프린트](./web-frontend.pdf)
 
 ## [8주차](https://drive.google.com/file/d/1cEPjoKidYuCG68rXsEFbDJBEml2IUJXq/view)
 
