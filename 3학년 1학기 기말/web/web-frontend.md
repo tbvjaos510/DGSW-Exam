@@ -120,7 +120,7 @@ css에서 `calc()`라는 함수가 있는데, 덧셈, 뺄셈, 곱셈, 나눗셈�
    }
    ```
 
-   자식의 height를 부모의 height보다 더 크기 준 다음, `overflow-y: auto`를 해주면 스크롤이 생긴다.
+   자식의 height를 부모의 height보다 더 크게 준 다음, `overflow-y: auto`를 해주면 스크롤이 생긴다.
 
 ## [9주차-1](https://drive.google.com/open?id=1hFPezA9rZMb7jtYqEwJ2mB9vLmOPwrZ4&)
 
@@ -196,29 +196,31 @@ export default Counter;
 
    리액트에서 class component를 만들때는 `render()`함수를 구현해 줘야 한다.
 
-   알아둬야 할 점은 `render()`은 컴포넌트가 생성될 때도 실행이 되지만 그 후, `state`가 변경되도 계속 실행되는 메소드기 때문에 초기화같은 것은 여기에 넣으면 안된다.
+   알아둬야 할 점은 `render()`은 컴포넌트가 생성될 때도 실행이 되지만 그 후, `state`가 변경되도 계속 실행되는 메소드이기 때문에 초기화같은 것은 여기에 넣으면 안된다.
 
 3. state 사용
 
    state를 사용하기 위해서는 `this.state.value`와 같이 `this.state`를 통해 `state`에 접근해야 한다.
 
-   > 컴포넌트 (jsx라고 부른다)내에서 javascript변수나 메소드같은 코드를 실행하기 위해서는 `{}`를 앞과 뒤에 붙어야 한다. (php의 `<?= ?>`, jsp의 `<%= %>`를 생각하자.)
+   > 컴포넌트 (jsx라고 부른다)내에서 javascript변수나 메소드같은 코드를 실행하기 위해서는 `{}` 사이에 입력해야 한다. (php의 `<?= ?>`, jsp의 `<%= %>`를 생각하자.)
 
 4. method 실행
 
    `onClick`과 같은 이벤트가 발생했을 때 특정 함수를 실행하고 싶으면 메소드를 넣으면 된다.
+   
+   `<button onClick={this.handlePlus}>+</button>`
 
 5. custom method 구현
 
-   함수 생성을 `handlePlus = () => {}`형식으로 선언을 하였는데, 이부분은 중요하다.
+   함수 생성을 `handlePlus = () => {}`형식으로 선언을 하였는데, 이 부분은 중요하다.
 
-   만약 `handlePlus() {}`로 선언을 한다면 함수 내에서 `this`는 `undefined`가 된다.
+   만약 `handlePlus() {}`로 선언을 한다면 해당 함수 내에서 `this`는 `undefined`가 된다. 주의하자.
 
    그러므로 꼭 `handlePlus = () => {}` 이렇게 선언을 하자
 
    > 만약 4번에서 `onClick={() => this.handlePlus()}` 이렇게 사용을 한다면
    >
-   > `handlePlus() {}`에서 this는 클래스 내로 정상 작동한다. 주의하자.
+   > `handlePlus() {}`내에서 this는 클래스 내로 정상 작동한다.
 
 6. setState 사용
 
@@ -243,9 +245,9 @@ const Delta = props => {
 export default Delta;
 ```
 
-함수형 컴포넌트는 함수의 인자값으로 props가 날라오고 리턴값은 클래스의  `render()`의 리턴값과 같이 한다.
+함수형 컴포넌트는 함수의 인자값으로 props가 받아오고 리턴값은 클래스의  `render()`의 리턴 값과 같이 한다.
 
-사용하는 이유는 성능이 좋고 간단하게 구현할 수 있어서라고 한다.
+사용하는 이유는 성능이 좋고 간단하게 구현할 수 있기 때문이라고 한다.
 
 ### 컴포넌트 사용
 
@@ -257,7 +259,7 @@ render() {
 }
 ```
 
-여기서 attribute로 data와 onChange를 보내주었는데,
+여기서 attribute로 data와 handleChange 보내주었는데,
 
 보낸 데이터가 함수형 컴포넌트에서는 `(props) => {}`로 오고 클래스에서는 `this.props`로 온다.
 
@@ -265,7 +267,7 @@ render() {
 
 ### React-Router
 
-React기본적으로 한 페이지(Single Page)위에서 동작한다. 즉 여러 페이지를 보여주기 위해서는
+React는 기본적으로 한 페이지(Single Page)위에서 동작한다. 즉 여러 페이지를 보여주기 위해서는
 
 ```jsx
 render() {
@@ -281,17 +283,17 @@ render() {
 
 > Tip: &&와 ||의 특별한 사용
 >
-> &&나 ||은 보통 if문 내에서 `if (a && b)`이렇게 두가지를 표현하는데, 다른 사용 방법도 있다.
+> &&나 ||은 보통 if문 내에서 `if (a && b)`이렇게 두 가지 조건을 표현할 때 사용하는데, 다른 사용 방법도 있다.
 >
-> 기본적으로 &&의 동작방식을 살피면 앞 식이 `false`이면 뒷 식을 검사하지 않고 넘어간다
+> 기본적으로 &&의 동작방식을 살피면 앞의 결과가 `false`이면 뒷 식을 검사하지 않고 넘어간다
 >
-> 그러기 때문에 뒷 값이 리턴이 안되고, 만약 앞 식이 `true`이면 뒷 식의 값을 리턴한다.
+> 그렇기 때문에 뒷 값이 리턴이 안되고, 만약 앞 식의 결과가 `true`이면 뒷 식의 값을 리턴한다.
 >
-> ||는 반대로 앞 식의 값이 `true`이면 앞 식을 리턴하고`false`이면 뒷 식의 값을 리턴한다.
+> ||는 반대로 앞 식의 결과가 `true`이면 앞 식의 값을 리턴하고 `false`이면 뒷 식의 값을 리턴한다.
 >
 > ```javascript
 > const a = obj.a; // 만약 여기서 obj가 undefined면 오류가 발생한다.
-> // 오류를 발생시키지 않응 방법은 아래 방법이다.
+> // 오류를 발생시키지 않을 방법은 아래 방법이다.
 > const a = obj && obj.a; // obj가 존재하면 obj.a 리턴
 > // ||의 사용
 > const b = obj.b || "b"; // obj.b가 있으면 obj.b 사용 없으면 "b" 사용 (기본 값)
@@ -331,7 +333,7 @@ render() {
   export default App;
   ```
 
-  이 두개는 세트로 이루어 져야 한다.
+  이 두 개는 세트로 이루어 져야 한다.
 
   `exact`는 해당 path가 정확히 같을 때에만 표시하게 해주는 것이다.
 
@@ -436,7 +438,7 @@ class PostStore {
 export default PostStore.getInstance();
 ```
 
-싱글턴 패턴의 특징은 모든 곳에서 같은 객체를 사용하며 공유하여 쓸 수 있다는 장점이 있다.
+싱글턴 패턴의 특징은 모든 곳에서 같은 객체를 공유해서 사용할 수 있다는 장점이 있다.
 
 ## [11주차](https://drive.google.com/open?id=1Revk4vK2HZx_JPPlz8ikY4rZg3o5jsYj)
 
