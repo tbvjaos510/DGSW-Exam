@@ -222,12 +222,12 @@ private String writer_id; // writer_id varchar(255) not null
 private String content; // post_content varchar(80)
 ```
 
-### 6. @CreationTimeStamp
+### 6. @CreatTimeStamp
 
 데이터를 생성하는 시간을 저장하는 컬럼을 생성합니다.
 
 ```java
-@CreationTimeStamp
+@CreateTimeStamp
 private LocalDateTime created;
 ```
 
