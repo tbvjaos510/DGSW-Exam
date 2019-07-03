@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
 ```java
 @Repository
-public class UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     ...
 }
 ```
