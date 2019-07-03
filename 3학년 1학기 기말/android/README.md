@@ -2,6 +2,8 @@
 
 [프린트](./Android.pdf)
 
+[준영이가 정리한 기획부분](./Android_준영.pdf)
+
 빠진 부분
 
 7 RecyclerView
@@ -979,11 +981,11 @@ public void onSendSMS(View v){
   public void onRequestPermissionsResult(int requestCode,
       @NonNull String[] permissions, @NonNull int[] grantResults) {
       if(requestCode != REQ_SEND_SMS) return;
-      if(permissions[0].equals(Manifest.permission.SEND_SMS) &&
-           grantResults[0] == PackageManager.PERMISSION_GRANTED)
-          sendSMS();
-      else
-          Toast.makeText(this, "문자 전송 권한이 없습니다.",
+      if(permissions[0].equals(Manifest.permission.SEND_SMS) &&
+           grantResults[0] == PackageManager.PERMISSION_GRANTED)
+          sendSMS();
+      else
+          Toast.makeText(this, "문자 전송 권한이 없습니다.",
       Toast.LENGTH_SHORT).show();
    ]
   ```
@@ -1049,7 +1051,7 @@ res/values/style.xml
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme"            
-           parent="Theme.AppCompat.Light.DarkActionBar">
+           parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item 
