@@ -223,22 +223,22 @@ TextView를 상속받은 위젯
 
 안드로이드에서 Listener를 등록하는 방법은
 
-2. Activity가 interface를 직접 구현
-   
-   ```java
-   public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-       public void onCreate... {
-           ...
-           // 버튼의 리스너로 자기 자신을 지정
-           button.setOnClickListener(this);
-       }
-       @Override
-       public void onClick(View view) {
-       }
-   }
-   ```
+1. Activity가 interface를 직접 구현
 
-3. interface의 익명 객체를 만들어서 사용
+```java
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    public void onCreate... {
+        ...
+        // 버튼의 리스너로 자기 자신을 지정
+        button.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View view) {
+    }
+}
+```
+
+2. interface의 익명 객체를 만들어서 사용
    
    ```java
    // ...
@@ -254,7 +254,7 @@ TextView를 상속받은 위젯
    
    > 인자값이 하나일 때는 괄호 생략 가능. body가 한줄일 경우 중괄호 생략 가능 (Javascript와 같다)
    
-   익명 객체를 사용하기 위해
+   익명 객체(람다식)를 사용하기 위해 해야할 자바 버전 설정
    
    ```gradle
    android {
@@ -270,7 +270,7 @@ TextView를 상속받은 위젯
    
    - 단점: 해당 객체를 다른 위젯이 사용할 수 없다.
 
-4. interface 변수를 사용하는 방법
+3. interface 변수를 사용하는 방법
    
    ```java
    // 클래스 내
@@ -288,7 +288,7 @@ TextView를 상속받은 위젯
    
    - 단점: Acitivty에 속한 메소드가 아니기 때문에 다른 위젯이나 메소드 접근에 제약이 있을 수 있다. (이문제는 익명 객체도 있다.)
 
-5. 메소드를 레이아웃에서 지정하는 방법
+4. 메소드를 레이아웃에서 지정하는 방법
    
    ```java
    public void customListener(View v) { // 함수명은 자유롭게 가능
@@ -501,7 +501,7 @@ SVG 불러오기는 스킵.
   
   - 오래 걸리는 작업을 실행
   
-  - Activity가 거진 후에도 수행해야 할 작업
+  - Activity가 꺼진 후에도 수행해야 할 작업
 
 - BroadCast Receiver
   
@@ -626,8 +626,8 @@ Activity를 호출하면 Stack에 쌓임 (즉 현재 페이지가 바뀌는 것�
     
     ```java
     Intent i = new Intent(this, SecondActivity.class);
-     i.putExtra("message", "Hello!!");
-     startActivity(i);
+    i.putExtra("message", "Hello!!");
+    startActivity(i);
     ```
   
   - 받는 쪽
@@ -758,6 +758,7 @@ private SharedPreferences preferences;
 protected void onCreate(Bundle savedInstanceState) {
     ...
     preferences = getSharedPreferences("user", MODE_PRIVATE);
+    String user = preferences.getString("user", null);
 }
 ```
 
@@ -766,14 +767,11 @@ protected void onCreate(Bundle savedInstanceState) {
 값 불러오기
 
 ```java
-// MainActivity.java
-private SharedPreferences preferences;
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    ...
-    preferences = getSharedPreferences("user", MODE_PRIVATE);
-    String user = preferences.getString("user", null);
-}
+SharedPreferences.Editor editor = preferences.edit();
+editor.putString("userName", userName);
+// 아래 방법 중 하나를 선택
+editor.apply();    // 비동기 방식
+editor.commit();    // 동기 방식
 ```
 
 ### SQLite
@@ -788,7 +786,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 #### 구조
 
-![image](https://user-images.githubusercontent.com/32216112/60584939-7c3ef980-9dc9-11e9-886c-77ca4100a45f.png)![image](https://user-images.githubusercontent.com/32216112/60584939-7c3ef980-9dc9-11e9-886c-77ca4100a45f.png)
+![image](https://user-images.githubusercontent.com/32216112/60584939-7c3ef980-9dc9-11e9-886c-77ca4100a45f.png)
 
 #### 생성
 
@@ -934,7 +932,7 @@ public long delete(){
 
 ### Permission 요청하기
 
-1. Manifest.xml에 필요한 권한 추가 (정상 권한이나 위험 권한 둘 다 해야함)
+1. Manifest.xml에 필요한 권한 추가 (정상 권한, 위험 권한 둘 다 해야함)
    
    ```xml
    <uses-permission android:name="android.permission.INTERNET" />
@@ -980,33 +978,21 @@ public void onSendSMS(View v){
   @Override
   public void onRequestPermissionsResult(int requestCode,
       @NonNull String[] permissions, @NonNull int[] grantResults) {
+      if(requestCode != REQ_SEND_SMS) return;
+      if(permissions[0].equals(Manifest.permission.SEND_SMS) &&
+           grantResults[0] == PackageManager.PERMISSION_GRANTED)
+          sendSMS();
+      else
+          Toast.makeText(this, "문자 전송 권한이 없습니다.",
+      Toast.LENGTH_SHORT).show();
+   ]
   ```
 
-      if(requestCode != REQ_SEND_SMS) return;
-      if(permissions[0].equals(Manifest.permission.SEND_SMS) &&             
-          grantResults[0] == PackageManager.PERMISSION_GRANTED)
-    
-          sendSMS();
-      else
-    
-          Toast.makeText(this, "문자 전송 권한이 없습니다.", 
-                              Toast.LENGTH_SHORT).show();
+### BroadCast Receiver
 
-  }
+배터리가 부족하다, 폰이 부팅되었다 등 시스템 이벤트를 수신하는 기능이다.
 
-```
-
-
-
-### BroadCast Receiver 사용
-
-시스템 또는 다른 Activity의 메시지를 수신할 때 사용하는 것이 BroadCast Receiver이다.
-
-배터리가 부족하다, 블루투스 기능이 꺼졌다 등의 이벤트 수신하는 역할.
-
-
-
-여기서는 블루투스 ON/OFF 감지하는 코드 사용
+#### 블루투스 ON/OFF 감지 코드
 
 ```java
 // MainActivity.java
@@ -1031,15 +1017,13 @@ private BroadcastReceiver receiver = new BroadcastReceiver() {
 };
 ```
 
-ON/OFF 감지하기
-
 ```java
+// MainActivity.java
 @Override
 protected void onStart(){
     super.onStart();
     IntentFilter filter = new     
                IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-
     registerReceiver(receiver, filter);
 }
 @Override
@@ -1064,8 +1048,8 @@ res/values/style.xml
 ```xml
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme"            parent="Theme.AppCompat.Light.DarkActionBar">
-
+    <style name="AppTheme"            
+           parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item 
@@ -1101,11 +1085,7 @@ widget은 여러 상태를 가진다.
 
 위젯에 상태에 맞는 다향안 디자인을 적용하기 위해 필요한 것이 Selector이다.
 
-
-
 1. colors.xml에 lightGray와 darkGray 추가 (스킵)
-
-
 
 2. res폴더에서 layout file 생성. Root element는 `selector`로 설정
 
@@ -1115,11 +1095,11 @@ widget은 여러 상태를 가진다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<selector     xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="false"
-        android:drawable="@color/lightGray"></item>
-    <item android:state_pressed="true"
-        android:drawable="@color/colorAccent"></item>
+<selector     xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false"
+        android:drawable="@color/lightGray"></item>
+    <item android:state_pressed="true"
+        android:drawable="@color/colorAccent"></item>
 </selector>
 ```
 
@@ -1131,12 +1111,12 @@ state_pressed로 버튼의 상태를 정의한다.
    
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
-   <selector     xmlns:android="http://schemas.android.com/apk/res/android">
-       <item android:state_pressed="false"
-           android:color="@color/colorAccent"></item>
-       <item android:state_pressed="true"
-           android:color="@color/lightGray"></item>
-
+   <selector     xmlns:android="http://schemas.android.com/apk/res/android">
+       <item android:state_pressed="false"
+           android:color="@color/colorAccent"></item>
+       <item android:state_pressed="true"
+           android:color="@color/lightGray"></item>
+   
    </selector>
    ```
 
@@ -1144,16 +1124,14 @@ state_pressed로 버튼의 상태를 정의한다.
    
    ```xml
    <style name="BigText" parent="Widget.AppCompat.Button">
-       <item name="android:textSize">24sp</item>
-       <item name="android:padding">24dp</item>
-       <item     name="android:background">@drawable/button_background</item>
-
-       <item 
-           name="android:textColor">@color/button_text_color</item>
+       <item name="android:textSize">24sp</item>
+       <item name="android:padding">24dp</item>
+       <item     name="android:background">@drawable/button_background</item>
+   
+       <item 
+           name="android:textColor">@color/button_text_color</item>
    </style>
    ```
-   
-   
 
 ## 10. WorkWithService
 
@@ -1169,8 +1147,6 @@ state_pressed로 버튼의 상태를 정의한다.
 
 AsyncTask란 별도의 Thread를 돌리면서도 UI를 갱신할 수 있도록 제공하는 클래스이다.
 
-
-
 #### 실습
 
 1. AndroidManifest.xml에 인터넷 권한 추가 (위에 참고)
@@ -1179,51 +1155,53 @@ AsyncTask란 별도의 Thread를 돌리면서도 UI를 갱신할 수 있도록 �
    
    ```java
    class Task extends AsyncTask<URL, Integer, String>{
-       private WeakReference<MainActivity> activityReference;
-       public Task(MaintActivity activity){
-           activityReference = new WeakReference<>(activity);
-       }
-       @Override
-       protected void onProgressUpdate(Integer... values) {}
-       @Override
-       protected void onPreExecute() {super.onPreExecute();}
-       @Override
-       protected String doInBackground(URL... params) {
-           return null;
-       }
-       @Override
-       protected void onPostExecute(String s) {
-           //super.onPostExecute(s);
-           MainActivity activity = activityReference.get();
-           if (activity == null || activity.isFinishing()) return;
-       }
+       private WeakReference<MainActivity> activityReference;
+       public Task(MaintActivity activity){
+           activityReference = new WeakReference<>(activity);
+       }
+       @Override
+       protected void onProgressUpdate(Integer... values) {}
+       @Override
+       protected void onPreExecute() {super.onPreExecute();}
+       @Override
+       protected String doInBackground(URL... params) {
+           return null;
+       }
+       @Override
+       protected void onPostExecute(String s) {
+           //super.onPostExecute(s);
+           MainActivity activity = activityReference.get();
+           if (activity == null || activity.isFinishing()) return;
+       }
    }
    ```
    
    만약 서버가 고정IP를 가지지 못하는 경우 절대 localhost를 사용하면 안됨.
+   
+   > localhost로 요청하면 핸드폰 자기자신을 찾는다.
 
-3.  MainActivity에서`onCreate()` 수정
+3. MainActivity에서`onCreate()` 수정
    
    ```java
    // MainActivity.java
    @Override
    protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_main);
-
-       textView = findViewById(R.id.textView);
-       try {
-           URL url = new URL("http://ip:port/context");
-           new Task(this).execute(url);
-       }catch (MalformedURLException e) { }
-
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   
+      textView = findViewById(R.id.textView);
+      try {
+          URL url = new URL("http://ip:port/context");
+          new Task(this).execute(url);
+      }catch (MalformedURLException e) { }
+   
    }
    @Override
    protected void onPostExecute(String s) {
-       //super.onPostExecute(s);
-       MainActivity activity = activityReference.get();
-       if (activity == null || activity.isFinishing()) return;
-       textView.setText(s);
+      //super.onPostExecute(s);
+      MainActivity activity = activityReference.get();
+      if (activity == null || activity.isFinishing()) return;
+      textView.setText(s);
    }
    ```
 
@@ -1232,58 +1210,54 @@ AsyncTask란 별도의 Thread를 돌리면서도 UI를 갱신할 수 있도록 �
    ```java
    @Override
    protected void onProgressUpdate(Integer... values) {
-       super.onProgressUpdate(values);
-       if(values.length > 0)
+       super.onProgressUpdate(values);
+       if(values.length > 0)
            Log.i("http", String.valueOf(values[0]));
-
+   
    }
    
    @Override
    protected void onPreExecute() {
-       super.onPreExecute();
+       super.onPreExecute();
    }
    
    protected String doInBackground(URL... params) {
-       int i=0;
-       String result = new String();
-       if(params == null || params.length < 1) return null;
-       try {
-           publishProgress(i++);
-           HttpURLConnection connection =         
-               (HttpURLConnection)params[0].openConnection();
-           connection.setRequestMethod("GET"); // get방식
-           //connection.setDoOutput(true); // 쓰기모드 - POST로 강제 설정됨
-           connection.setDoInput(true); // 읽기모드
-           connection.setUseCaches(false);
-           connection.setDefaultUseCaches(false);
-           publishProgress(i++);
-           InputStream is = connection.getInputStream();
-           StringBuilder builder = new StringBuilder(); //문자열을 담기 위한 객체
-           BufferedReader reader = new BufferedReader(new 
+       int i=0;
+       String result = new String();
+       if(params == null || params.length < 1) return null;
+       try {
+           publishProgress(i++);
+           HttpURLConnection connection =         
+               (HttpURLConnection)params[0].openConnection();
+           connection.setRequestMethod("GET"); // get방식
+           //connection.setDoOutput(true); // 쓰기모드 - POST로 강제 설정됨
+           connection.setDoInput(true); // 읽기모드
+           connection.setUseCaches(false);
+           connection.setDefaultUseCaches(false);
+           publishProgress(i++);
+           InputStream is = connection.getInputStream();
+           StringBuilder builder = new StringBuilder(); //문자열을 담기 위한 객체
+           BufferedReader reader = new BufferedReader(new 
                        InputStreamReader(is,"UTF-8")); //문자열 셋팅
-
-           String line;
-           while ((line = reader.readLine()) != null) {
-               builder.append(line+ "\n");
-               publishProgress(i++);
-           }
-           result = builder.toString();Log.i("http", "result=" + result);
-           publishProgress(i++);
+   
+           String line;
+           while ((line = reader.readLine()) != null) {
+               builder.append(line+ "\n");
+               publishProgress(i++);
+           }
+           result = builder.toString();Log.i("http", "result=" + result);
+           publishProgress(i++);
        } catch(IOException me){ me.printStackTrace(); }
-
-       return result;
+   
+       return result;
    }
    ```
-
-
 
 ## 11. Service
 
 Android의 Component중 하나로 화면 없이 동작하는 코드이다.
 
 보통 음악 플레이어, 채팅(알림) 등에 사용된다.
-
-
 
 AndroidManifest.xml에 기술되어야 한다.
 
@@ -1297,30 +1271,28 @@ AndroidManifest.xml에 기술되어야 한다.
 
 * `bindService() / unbineService()`: Service를 구동하는데, 모든 bind가 해제돼야 서비스가 종료된다. service와 차이점은 activity에서 service를 받아서 직접 데이터를 주고 받을 수 있다.
 
-
-
 ### 실습
 
 1. AndroidManifest.xml에 만든 서비스 추가
    
    ```xml
    <service
-       android:name=".SimpleService"
-       android:enabled="true"
-       android:exported="true"></service>
+       android:name=".SimpleService"
+       android:enabled="true"
+       android:exported="true"></service>
    ```
 
 2. Service 생성
    
    ```java
    public void startService(View v){
-       Intent intent = new Intent(this, SimpleService.class);
-       startService(intent);
+       Intent intent = new Intent(this, SimpleService.class);
+       startService(intent);
    }
    
    public void stopService(View v){
-       Intent intent = new Intent(this, SimpleService.class);
-       stopService(intent);
+       Intent intent = new Intent(this, SimpleService.class);
+       stopService(intent);
    }
    ```
 
@@ -1350,7 +1322,7 @@ AndroidManifest.xml에 기술되어야 한다.
    
    ```xml
    <style name="AppTheme" 
-          parent="Theme.AppCompat.Light.NoActionBar">
+          parent="Theme.AppCompat.Light.NoActionBar">
    ```
 
 2. DrawingView 클래스 생성 (선 색 변경 하지 않은 상태)
@@ -1359,55 +1331,55 @@ AndroidManifest.xml에 기술되어야 한다.
    public class DrawingView extends AppCompatImageView 
                                implements View.OnTouchListener {
        private Path path;
-
-       public DrawingView(Context context) { 
-           super(context); 
+   
+       public DrawingView(Context context) { 
+           super(context); 
            init();
            setOnTouchListener(this);
        }
-
-       public DrawingView(Context context, AttributeSet attrs) 
-       {     
+   
+       public DrawingView(Context context, AttributeSet attrs) 
+       {     
            super(context, attrs); 
        }
-
-       public DrawingView(Context context, AttributeSet attrs, int 
-                           defStyleAttr) {
-           super(context, attrs, defStyleAttr);
-       }
-       private void init(){
-           paint = new Paint();
-           paint.setColor(Color.BLACK);
-           paint.setStyle(Paint.Style.STROKE);
-           paint.setStrokeCap(Paint.Cap.ROUND);
-           paint.setStrokeWidth(10);
-           paint.setAntiAlias(true);
-           path = new Path();
-       }
-       @Override
-       protected void onDraw(Canvas canvas) {
+   
+       public DrawingView(Context context, AttributeSet attrs, int 
+                           defStyleAttr) {
+           super(context, attrs, defStyleAttr);
+       }
+       private void init(){
+           paint = new Paint();
+           paint.setColor(Color.BLACK);
+           paint.setStyle(Paint.Style.STROKE);
+           paint.setStrokeCap(Paint.Cap.ROUND);
+           paint.setStrokeWidth(10);
+           paint.setAntiAlias(true);
+           path = new Path();
+       }
+       @Override
+       protected void onDraw(Canvas canvas) {
            super.onDraw(canvas);
            canvas.drawPath(path, paint);
-
-       }
-       @Override
-       public boolean onTouch(View view, MotionEvent motionEvent) {
-           int action = motionEvent.getAction();
-           switch(action){
-               case MotionEvent.ACTION_DOWN:
-                   path.lineTo(motionEvent.getX(), 
-                               motionEvent.getY());
-                   break;
-               case MotionEvent.ACTION_MOVE:
-                   path.moveTo(motionEvent.getX(), 
-                               motionEvent.getY());
-                   break;
-               case MotionEvent.ACTION_UP: break;
+   
+       }
+       @Override
+       public boolean onTouch(View view, MotionEvent motionEvent) {
+           int action = motionEvent.getAction();
+           switch(action){
+               case MotionEvent.ACTION_DOWN:
+                   path.lineTo(motionEvent.getX(), 
+                               motionEvent.getY());
+                   break;
+               case MotionEvent.ACTION_MOVE:
+                   path.moveTo(motionEvent.getX(), 
+                               motionEvent.getY());
+                   break;
+               case MotionEvent.ACTION_UP: break;
            }
-
-           invalidate();
-           return false;
-       }
+   
+           invalidate();
+           return false;
+       }
    }
    ```
 
@@ -1415,13 +1387,11 @@ AndroidManifest.xml에 기술되어야 한다.
    
    ```xml
    <com.andrstudy.drawingview.DrawingView
-       android:id="@+id/drawingView"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:clickable="true" <!-- 이부분 중요 -->
-
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"/>
+       android:id="@+id/drawingView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:clickable="true" <!-- 이부분 중요 -->
+   
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"/>
    ```
-   
-   
