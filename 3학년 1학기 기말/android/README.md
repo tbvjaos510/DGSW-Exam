@@ -1133,7 +1133,7 @@ state_pressed로 버튼의 상태를 정의한다.
    </style>
    ```
 
-## 10. WorkWithService
+## 10. WorkWithServer
 
 ### Server와의 통신
 
