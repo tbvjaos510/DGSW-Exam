@@ -766,8 +766,6 @@ protected void onCreate(Bundle savedInstanceState) {
 
 #### 값 저장하기
 
-값 불러오기
-
 ```java
 SharedPreferences.Editor editor = preferences.edit();
 editor.putString("userName", userName);
